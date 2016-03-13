@@ -1,0 +1,23 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <BCC_DisableWarnings>true</BCC_DisableWarnings>
+        <BCC_PCHUsage>None</BCC_PCHUsage>
+        <ILINK_AdditionalOptions>-GHtds=0x12000000 -GVTEXT=0x12000000 -GVRODATA=0x12000000 -GVDEBUG_INFO=0x12000000 -GV_DEBUG_STR=0x12000000</ILINK_AdditionalOptions>
+        <BCC_DebugLineNumbers>false</BCC_DebugLineNumbers>
+        <DynamicRTL>true</DynamicRTL>
+        <BCC_SelectedWarnings>false</BCC_SelectedWarnings>
+        <ILINK_DisplayTime>true</ILINK_DisplayTime>
+        <BCC_SourceDebuggingOn>false</BCC_SourceDebuggingOn>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <Manifest_File>None</Manifest_File>
+    </PropertyGroup>
+    <ProjectExtensions>
+        <Borland.Personality>CPlusPlusBuilder.Personality.12</Borland.Personality>
+        <Borland.ProjectType>OptionSet</Borland.ProjectType>
+        <BorlandProject>
+            <CPlusPlusBuilder.Personality/>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+</Project>

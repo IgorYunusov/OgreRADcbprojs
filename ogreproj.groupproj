@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{6EF22694-9587-4FF9-9CBB-661ED110DB2F}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ogre.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ogre">
+        <MSBuild Projects="ogre.cbproj"/>
+    </Target>
+    <Target Name="ogre:Clean">
+        <MSBuild Projects="ogre.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ogre:Make">
+        <MSBuild Projects="ogre.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ogre"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ogre:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ogre:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

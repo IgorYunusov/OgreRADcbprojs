@@ -1,0 +1,2011 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{E1AF8665-3BBA-46A8-836C-6147B6DF60C8}</ProjectGuid>
+        <ProjectVersion>17.2</ProjectVersion>
+        <FrameworkType>None</FrameworkType>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <TargetedPlatforms>3</TargetedPlatforms>
+        <AppType>Library</AppType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+        <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win64)'!=''">
+        <Cfg_1_Win64>true</Cfg_1_Win64>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+        <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win64)'!=''">
+        <Cfg_2_Win64>true</Cfg_2_Win64>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <RunBCCOutOfProcess>true</RunBCCOutOfProcess>
+        <BCC_DisableOptimizations>true</BCC_DisableOptimizations>
+        <Defines>OGRE_NONCLIENT_BUILD;WIN32;FREEIMAGE_LIB;$(Defines)</Defines>
+        <VerInfo_Locale>1049</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <_TCHARMapping>char</_TCHARMapping>
+        <BCC_PCHWithExternalTypeFiles>false</BCC_PCHWithExternalTypeFiles>
+        <BCC_SmartPCHCache>false</BCC_SmartPCHCache>
+        <ProjectType>CppDynamicLibrary</ProjectType>
+        <ILINK_LibraryPath>..\OgreCPPBuilder\OgreMain\src\Threading\;..\ogredeps_git_borland\src\freetype\include\freetype\internal\;..\ogredeps_git_borland\src\freetype\include\freetype\config\;..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\;..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmThread\;..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\;..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Iex\;..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Half\;..\ogredeps_git_borland\src\freetype\src\winfonts\;..\ogredeps_git_borland\src\freetype\src\type42\;..\ogredeps_git_borland\src\freetype\src\type1\;..\ogredeps_git_borland\src\freetype\src\truetype\;..\ogredeps_git_borland\src\freetype\src\smooth\;..\ogredeps_git_borland\src\freetype\src\sfnt\;..\ogredeps_git_borland\src\freetype\src\raster\;..\ogredeps_git_borland\src\freetype\src\psnames\;..\ogredeps_git_borland\src\freetype\src\pshinter\;..\ogredeps_git_borland\src\freetype\src\psaux\;..\ogredeps_git_borland\src\freetype\src\pfr\;..\ogredeps_git_borland\src\freetype\src\pcf\;..\ogredeps_git_borland\src\freetype\src\lzw\;..\ogredeps_git_borland\src\freetype\src\gzip\;..\ogredeps_git_borland\src\freetype\src\cid\;..\ogredeps_git_borland\src\freetype\src\cff\;..\ogredeps_git_borland\src\freetype\src\cache\;..\ogredeps_git_borland\src\freetype\src\bzip2\;..\ogredeps_git_borland\src\freetype\src\bdf\;..\ogredeps_git_borland\src\freetype\src\base\;..\ogredeps_git_borland\src\freetype\src\autofit\;..\ogredeps_git_borland\src\freetype\include\freetype\;..\ogredeps_git_borland\src\freetype\include\;..\ogredeps_git_borland\src\zlib\;..\ogredeps_git_borland\src\FreeImage\Source\FreeImageToolkit\;..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\;..\ogredeps_git_borland\src\FreeImage\Source\DeprecationManager\;..\ogredeps_git_borland\src\FreeImage\Source\;..\ogredeps_git_borland\src\FreeImage\Source\ZLib\;..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\;..\ogredeps_git_borland\src\FreeImage\Source\Metadata\;..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\;..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\;..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\;..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\;..\OgreCPPBuilder\OgreMain\include\WIN32\;..\OgreCPPBuilder\OgreMain\src\WIN32\;..\OgreCPPBuilder\OgreMain\include\;..\OgreCPPBuilder\OgreMain\src\;..\build_dll\include\;C:\Develop\ogre181\ogre_RAD_build_dll\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <ILINK_GenerateImportLibrary>true</ILINK_GenerateImportLibrary>
+        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <IncludePath>..\OgreCPPBuilder\OgreMain\src\Threading\;..\ogredeps_git_borland\src\freetype\include\freetype\internal\;..\ogredeps_git_borland\src\freetype\include\freetype\config\;..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\;..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmThread\;..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\;..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Iex\;..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Half\;..\ogredeps_git_borland\src\freetype\src\winfonts\;..\ogredeps_git_borland\src\freetype\src\type42\;..\ogredeps_git_borland\src\freetype\src\type1\;..\ogredeps_git_borland\src\freetype\src\truetype\;..\ogredeps_git_borland\src\freetype\src\smooth\;..\ogredeps_git_borland\src\freetype\src\sfnt\;..\ogredeps_git_borland\src\freetype\src\raster\;..\ogredeps_git_borland\src\freetype\src\psnames\;..\ogredeps_git_borland\src\freetype\src\pshinter\;..\ogredeps_git_borland\src\freetype\src\psaux\;..\ogredeps_git_borland\src\freetype\src\pfr\;..\ogredeps_git_borland\src\freetype\src\pcf\;..\ogredeps_git_borland\src\freetype\src\lzw\;..\ogredeps_git_borland\src\freetype\src\gzip\;..\ogredeps_git_borland\src\freetype\src\cid\;..\ogredeps_git_borland\src\freetype\src\cff\;..\ogredeps_git_borland\src\freetype\src\cache\;..\ogredeps_git_borland\src\freetype\src\bzip2\;..\ogredeps_git_borland\src\freetype\src\bdf\;..\ogredeps_git_borland\src\freetype\src\base\;..\ogredeps_git_borland\src\freetype\src\autofit\;..\ogredeps_git_borland\src\freetype\include\freetype\;..\ogredeps_git_borland\src\freetype\include\;..\ogredeps_git_borland\src\;..\ogredeps_git_borland\src\FreeImage\Source\FreeImageToolkit\;..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\;..\ogredeps_git_borland\src\FreeImage\Source\DeprecationManager\;..\ogredeps_git_borland\src\FreeImage\Source\;..\ogredeps_git_borland\src\FreeImage\Source\ZLib\;..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\;..\ogredeps_git_borland\src\FreeImage\Source\Metadata\;..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\;..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\;..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\;..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\;..\OgreCPPBuilder\OgreMain\include\WIN32\;..\OgreCPPBuilder\OgreMain\src\WIN32\;..\OgreCPPBuilder\OgreMain\include\;..\OgreCPPBuilder\OgreMain\src\;..\build_dll\include\;C:\Develop\ogre181\ogre_RAD_build_dll\;C:\Develop\ogre181\ogredeps_git_borland\src\zziplib\;C:\Develop\ogre181\ogredeps_git_borland\src\zlib;C:\Develop\ogre181\ogredeps_git_borland\src\freetype\include;C:\Develop\ogre181\ogredeps_git_borland\src\FreeImage\Source;$(IncludePath)</IncludePath>
+        <SanitizedProjectName>ogre</SanitizedProjectName>
+        <DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
+        <IntermediateOutputDir>.\$(Platform)\$(Config)</IntermediateOutputDir>
+        <FinalOutputDir>.\$(Platform)\$(Config)</FinalOutputDir>
+        <BCC_wpar>false</BCC_wpar>
+        <BCC_ExtendedErrorInfo>true</BCC_ExtendedErrorInfo>
+        <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\release\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <ILINK_LibraryPath>C:\Develop\ogre181\ogre_RAD_build_dll\Win32\Debug\;C:\Develop\ogre181\dep-build\ogredeps\lib\Debug\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <PackageImports>adortl;appanalytics;bcbie;bcbsmp;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindengine;CloudService;CodeSiteExpressPkg;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapConnectors;DatasnapConnectorsFreePascal;DataSnapFireDAC;DataSnapIndy10ServerTransport;DataSnapNativeClient;DataSnapProviderClient;DataSnapServer;DataSnapServerMidas;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXDb2Driver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMSSQLDriver;DBXMySQLDriver;DBXOdbcDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;DBXSybaseASEDriver;dsnap;dsnapcon;dsnapxml;emsclient;emsclientfiredac;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACDb2Driver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACInfxDriver;FireDACMSAccDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;FireDACTDataDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;frx22;frxDB22;frxe22;frxTee22;ibmonitor;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;Intraweb;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;svn;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldsnap;vclFireDAC;vclib;vclie;vclimg;VCLRESTComponents;vclribbon;VclSmp;vcltouch;vclx;xmlrtl;$(PackageImports)</PackageImports>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
+        <BCC_DisableOptimizations>true</BCC_DisableOptimizations>
+        <BCC_PCHUsage>None</BCC_PCHUsage>
+        <ILINK_SelectedWarnings>false</ILINK_SelectedWarnings>
+        <ILINK_Verbose>true</ILINK_Verbose>
+        <ILINK_DisableWarnings>true</ILINK_DisableWarnings>
+        <DynamicRTL>true</DynamicRTL>
+        <ILINK_AdditionalOptions>-GHtds=0x10000000 -GVTEXT=0x12000000 -GVRODATA=0x12000000 -GVDEBUG_INFO=0x12000000 -GV_DEBUG_STR=0x12000000</ILINK_AdditionalOptions>
+        <BCC_SelectedWarnings>false</BCC_SelectedWarnings>
+        <BCC_DisableWarnings>true</BCC_DisableWarnings>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <PackageImports>adortl;appanalytics;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapConnectors;DatasnapConnectorsFreePascal;DataSnapFireDAC;DataSnapIndy10ServerTransport;DataSnapNativeClient;DataSnapProviderClient;DataSnapServer;DataSnapServerMidas;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXDb2Driver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMSSQLDriver;DBXMySQLDriver;DBXOdbcDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;DBXSybaseASEDriver;dsnap;dsnapcon;dsnapxml;emsclient;emsclientfiredac;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACDb2Driver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACInfxDriver;FireDACMSAccDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;FireDACTDataDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;ibmonitor;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;Intraweb;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldsnap;vclFireDAC;vclib;vclie;vclimg;VCLRESTComponents;vclribbon;VclSmp;vcltouch;vclx;xmlrtl;$(PackageImports)</PackageImports>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <Manifest_File>None</Manifest_File>
+        <BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
+        <BCC_DisableOptimizations>true</BCC_DisableOptimizations>
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+        <Defines>_DEBUG;$(Defines)</Defines>
+        <BCC_InlineFunctionExpansion>false</BCC_InlineFunctionExpansion>
+        <BCC_UseRegisterVariables>None</BCC_UseRegisterVariables>
+        <DCC_Define>DEBUG</DCC_Define>
+        <BCC_DebugLineNumbers>true</BCC_DebugLineNumbers>
+        <TASM_DisplaySourceLines>true</TASM_DisplaySourceLines>
+        <BCC_StackFrames>true</BCC_StackFrames>
+        <ILINK_FullDebugInfo>true</ILINK_FullDebugInfo>
+        <TASM_Debugging>Full</TASM_Debugging>
+        <BCC_SourceDebuggingOn>true</BCC_SourceDebuggingOn>
+        <BCC_EnableCPPExceptions>true</BCC_EnableCPPExceptions>
+        <BCC_DisableFramePtrElimOpt>true</BCC_DisableFramePtrElimOpt>
+        <BCC_DisableSpellChecking>true</BCC_DisableSpellChecking>
+        <CLANG_UnwindTables>true</CLANG_UnwindTables>
+        <ILINK_LibraryPath>$(BDSLIB)\$(PLATFORM)\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\debug\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <BCC_SourceDebuggingOn>false</BCC_SourceDebuggingOn>
+        <BCC_DisableWarnings>true</BCC_DisableWarnings>
+        <BCC_PCHUsage>None</BCC_PCHUsage>
+        <DynamicRTL>true</DynamicRTL>
+        <BCC_SelectedWarnings>false</BCC_SelectedWarnings>
+        <ILINK_DisplayTime>true</ILINK_DisplayTime>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
+        <ILINK_AdditionalOptions>-GHtds=0x12000000 -GVTEXT=0x12000000 -GVRODATA=0x12000000 -GVDEBUG_INFO=0x12000000 -GV_DEBUG_STR=0x12000000</ILINK_AdditionalOptions>
+        <ILINK_FullDebugInfo>false</ILINK_FullDebugInfo>
+        <ILINK_HeapReserveSize>0x7F000000</ILINK_HeapReserveSize>
+        <ILINK_StackReserveSize>0x7F000000</ILINK_StackReserveSize>
+        <BCC_SourceDebuggingOn>false</BCC_SourceDebuggingOn>
+        <BCC_PCHUsage>None</BCC_PCHUsage>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <Defines>NDEBUG;$(Defines)</Defines>
+        <TASM_Debugging>None</TASM_Debugging>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
+        <BCC_SelectedWarnings>false</BCC_SelectedWarnings>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <ILINK_AdditionalOptions>GHtds=0x10000000</ILINK_AdditionalOptions>
+        <BCC_DisableWarnings>true</BCC_DisableWarnings>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <BCC_PCHName_Clang>___ogre.h</BCC_PCHName_Clang>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="..\build_dll\include\OgreBuildSettings.h">
+            <BuildOrder>2</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\asm_math.h">
+            <BuildOrder>215</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\Ogre.h">
+            <BuildOrder>216</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreAlignedAllocator.h">
+            <BuildOrder>217</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreAnimable.h">
+            <BuildOrder>218</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreAnimation.h">
+            <BuildOrder>219</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreAnimationState.h">
+            <BuildOrder>220</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreAnimationTrack.h">
+            <BuildOrder>221</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreAny.h">
+            <BuildOrder>222</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreArchive.h">
+            <BuildOrder>223</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreArchiveFactory.h">
+            <BuildOrder>224</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreArchiveManager.h">
+            <BuildOrder>225</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreAtomicWrappers.h">
+            <BuildOrder>226</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreAutoParamDataSource.h">
+            <BuildOrder>227</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreAxisAlignedBox.h">
+            <BuildOrder>228</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreBillboard.h">
+            <BuildOrder>229</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreBillboardChain.h">
+            <BuildOrder>230</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreBillboardParticleRenderer.h">
+            <BuildOrder>231</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreBillboardSet.h">
+            <BuildOrder>232</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreBitwise.h">
+            <BuildOrder>233</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreBlendMode.h">
+            <BuildOrder>234</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreBone.h">
+            <BuildOrder>235</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreBorderPanelOverlayElement.h">
+            <BuildOrder>236</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreCamera.h">
+            <BuildOrder>237</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreCodec.h">
+            <BuildOrder>238</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreColourValue.h">
+            <BuildOrder>239</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreCommon.h">
+            <BuildOrder>240</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreCompositionPass.h">
+            <BuildOrder>241</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreCompositionTargetPass.h">
+            <BuildOrder>242</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreCompositionTechnique.h">
+            <BuildOrder>243</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreCompositor.h">
+            <BuildOrder>244</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreCompositorChain.h">
+            <BuildOrder>245</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreCompositorInstance.h">
+            <BuildOrder>246</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreCompositorLogic.h">
+            <BuildOrder>247</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreCompositorManager.h">
+            <BuildOrder>248</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreConfig.h">
+            <BuildOrder>249</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreConfigDialog.h">
+            <BuildOrder>250</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreConfigFile.h">
+            <BuildOrder>251</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreConfigOptionMap.h">
+            <BuildOrder>252</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreController.h">
+            <BuildOrder>253</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreControllerManager.h">
+            <BuildOrder>254</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreConvexBody.h">
+            <BuildOrder>255</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreCustomCompositionPass.h">
+            <BuildOrder>256</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreDataStream.h">
+            <BuildOrder>257</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreDDSCodec.h">
+            <BuildOrder>258</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreDefaultHardwareBufferManager.h">
+            <BuildOrder>259</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreDeflate.h">
+            <BuildOrder>260</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreDepthBuffer.h">
+            <BuildOrder>261</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreDistanceLodStrategy.h">
+            <BuildOrder>262</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreDualQuaternion.h">
+            <BuildOrder>263</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreDynLib.h">
+            <BuildOrder>264</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreDynLibManager.h">
+            <BuildOrder>265</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreEdgeListBuilder.h">
+            <BuildOrder>266</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreEntity.h">
+            <BuildOrder>267</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreErrorDialog.h">
+            <BuildOrder>268</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreException.h">
+            <BuildOrder>269</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreExternalTextureSource.h">
+            <BuildOrder>270</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreExternalTextureSourceManager.h">
+            <BuildOrder>271</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreFactoryObj.h">
+            <BuildOrder>272</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreFileSystem.h">
+            <BuildOrder>273</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreFont.h">
+            <BuildOrder>274</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreFontManager.h">
+            <BuildOrder>275</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreFrameListener.h">
+            <BuildOrder>276</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreFreeImageCodec.h">
+            <BuildOrder>277</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreFrustum.h">
+            <BuildOrder>278</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreGpuProgram.h">
+            <BuildOrder>279</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreGpuProgramManager.h">
+            <BuildOrder>280</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreGpuProgramParams.h">
+            <BuildOrder>281</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreGpuProgramUsage.h">
+            <BuildOrder>282</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreHardwareBuffer.h">
+            <BuildOrder>283</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreHardwareBufferManager.h">
+            <BuildOrder>284</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreHardwareIndexBuffer.h">
+            <BuildOrder>285</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreHardwareOcclusionQuery.h">
+            <BuildOrder>286</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreHardwarePixelBuffer.h">
+            <BuildOrder>287</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreHardwareVertexBuffer.h">
+            <BuildOrder>288</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreHeaderPrefix.h">
+            <BuildOrder>289</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreHeaderSuffix.h">
+            <BuildOrder>290</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreHighLevelGpuProgram.h">
+            <BuildOrder>291</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreHighLevelGpuProgramManager.h">
+            <BuildOrder>292</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreILCodecs.h">
+            <BuildOrder>293</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreILImageCodec.h">
+            <BuildOrder>294</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreILUtil.h">
+            <BuildOrder>295</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreImage.h">
+            <BuildOrder>296</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreImageCodec.h">
+            <BuildOrder>297</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreInstanceBatch.h">
+            <BuildOrder>298</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreInstanceBatchHW.h">
+            <BuildOrder>299</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreInstanceBatchHW_VTF.h">
+            <BuildOrder>300</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreInstanceBatchShader.h">
+            <BuildOrder>301</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreInstanceBatchVTF.h">
+            <BuildOrder>302</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreInstancedEntity.h">
+            <BuildOrder>303</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreInstancedGeometry.h">
+            <BuildOrder>304</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreInstanceManager.h">
+            <BuildOrder>305</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreIteratorRange.h">
+            <BuildOrder>306</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreIteratorWrapper.h">
+            <BuildOrder>307</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreIteratorWrappers.h">
+            <BuildOrder>308</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreKeyFrame.h">
+            <BuildOrder>309</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreLight.h">
+            <BuildOrder>310</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreLodListener.h">
+            <BuildOrder>311</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreLodStrategy.h">
+            <BuildOrder>312</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreLodStrategyManager.h">
+            <BuildOrder>313</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreLog.h">
+            <BuildOrder>314</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreLogManager.h">
+            <BuildOrder>315</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreManualObject.h">
+            <BuildOrder>316</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreMaterial.h">
+            <BuildOrder>317</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreMaterialManager.h">
+            <BuildOrder>318</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreMaterialSerializer.h">
+            <BuildOrder>319</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreMath.h">
+            <BuildOrder>320</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreMatrix3.h">
+            <BuildOrder>321</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreMatrix4.h">
+            <BuildOrder>322</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreMemoryAllocatedObject.h">
+            <BuildOrder>323</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreMemoryAllocatorConfig.h">
+            <BuildOrder>324</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreMemoryNedAlloc.h">
+            <BuildOrder>325</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreMemoryNedPooling.h">
+            <BuildOrder>326</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreMemoryStdAlloc.h">
+            <BuildOrder>327</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreMemorySTLAllocator.h">
+            <BuildOrder>328</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreMemoryTracker.h">
+            <BuildOrder>329</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreMesh.h">
+            <BuildOrder>330</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreMeshFileFormat.h">
+            <BuildOrder>331</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreMeshManager.h">
+            <BuildOrder>332</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreMeshSerializer.h">
+            <BuildOrder>333</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreMeshSerializerImpl.h">
+            <BuildOrder>334</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreMovableObject.h">
+            <BuildOrder>335</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreMovablePlane.h">
+            <BuildOrder>336</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreNode.h">
+            <BuildOrder>337</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreNumerics.h">
+            <BuildOrder>338</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreOptimisedUtil.h">
+            <BuildOrder>339</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreOverlay.h">
+            <BuildOrder>340</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreOverlayContainer.h">
+            <BuildOrder>341</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreOverlayElement.h">
+            <BuildOrder>342</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreOverlayElementCommands.h">
+            <BuildOrder>343</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreOverlayElementFactory.h">
+            <BuildOrder>344</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreOverlayManager.h">
+            <BuildOrder>345</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgrePanelOverlayElement.h">
+            <BuildOrder>346</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreParticle.h">
+            <BuildOrder>347</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreParticleAffector.h">
+            <BuildOrder>348</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreParticleAffectorFactory.h">
+            <BuildOrder>349</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreParticleEmitter.h">
+            <BuildOrder>350</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreParticleEmitterCommands.h">
+            <BuildOrder>351</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreParticleEmitterFactory.h">
+            <BuildOrder>352</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreParticleIterator.h">
+            <BuildOrder>353</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreParticleScriptCompiler.h">
+            <BuildOrder>354</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreParticleSystem.h">
+            <BuildOrder>355</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreParticleSystemManager.h">
+            <BuildOrder>356</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreParticleSystemRenderer.h">
+            <BuildOrder>357</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgrePass.h">
+            <BuildOrder>358</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgrePatchMesh.h">
+            <BuildOrder>359</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgrePatchSurface.h">
+            <BuildOrder>360</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgrePixelCountLodStrategy.h">
+            <BuildOrder>361</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgrePixelFormat.h">
+            <BuildOrder>362</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgrePlane.h">
+            <BuildOrder>363</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgrePlaneBoundedVolume.h">
+            <BuildOrder>364</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgrePlatform.h">
+            <BuildOrder>365</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgrePlatformInformation.h">
+            <BuildOrder>366</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgrePlugin.h">
+            <BuildOrder>367</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgrePolygon.h">
+            <BuildOrder>368</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgrePose.h">
+            <BuildOrder>369</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgrePredefinedControllers.h">
+            <BuildOrder>370</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgrePrefabFactory.h">
+            <BuildOrder>371</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgrePrerequisites.h">
+            <BuildOrder>372</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreProfiler.h">
+            <BuildOrder>373</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreProgressiveMesh.h">
+            <BuildOrder>374</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgrePVRTCCodec.h">
+            <BuildOrder>375</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreQuaternion.h">
+            <BuildOrder>376</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRadixSort.h">
+            <BuildOrder>377</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRay.h">
+            <BuildOrder>378</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRectangle.h">
+            <BuildOrder>379</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRectangle2D.h">
+            <BuildOrder>380</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRenderable.h">
+            <BuildOrder>381</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRenderObjectListener.h">
+            <BuildOrder>382</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRenderOperation.h">
+            <BuildOrder>383</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRenderQueue.h">
+            <BuildOrder>384</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRenderQueueInvocation.h">
+            <BuildOrder>385</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRenderQueueListener.h">
+            <BuildOrder>386</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRenderQueueSortingGrouping.h">
+            <BuildOrder>387</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRenderSystem.h">
+            <BuildOrder>388</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRenderSystemCapabilities.h">
+            <BuildOrder>389</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRenderSystemCapabilitiesManager.h">
+            <BuildOrder>390</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRenderSystemCapabilitiesSerializer.h">
+            <BuildOrder>391</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRenderTarget.h">
+            <BuildOrder>392</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRenderTargetListener.h">
+            <BuildOrder>393</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRenderTexture.h">
+            <BuildOrder>394</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRenderToVertexBuffer.h">
+            <BuildOrder>395</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRenderWindow.h">
+            <BuildOrder>396</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreResource.h">
+            <BuildOrder>397</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreResourceBackgroundQueue.h">
+            <BuildOrder>398</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreResourceGroupManager.h">
+            <BuildOrder>399</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreResourceManager.h">
+            <BuildOrder>400</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRibbonTrail.h">
+            <BuildOrder>401</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRoot.h">
+            <BuildOrder>402</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreRotationalSpline.h">
+            <BuildOrder>403</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreSceneManager.h">
+            <BuildOrder>404</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreSceneManagerEnumerator.h">
+            <BuildOrder>405</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreSceneNode.h">
+            <BuildOrder>406</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreSceneQuery.h">
+            <BuildOrder>407</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreScriptCompiler.h">
+            <BuildOrder>408</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreScriptLexer.h">
+            <BuildOrder>409</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreScriptLoader.h">
+            <BuildOrder>410</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreScriptParser.h">
+            <BuildOrder>411</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreScriptTranslator.h">
+            <BuildOrder>412</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreSearchOps.h">
+            <BuildOrder>413</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreSerializer.h">
+            <BuildOrder>414</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreShadowCameraSetup.h">
+            <BuildOrder>415</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreShadowCameraSetupFocused.h">
+            <BuildOrder>416</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreShadowCameraSetupLiSPSM.h">
+            <BuildOrder>417</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreShadowCameraSetupPlaneOptimal.h">
+            <BuildOrder>418</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreShadowCameraSetupPSSM.h">
+            <BuildOrder>419</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreShadowCaster.h">
+            <BuildOrder>420</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreShadowTextureManager.h">
+            <BuildOrder>421</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreShadowVolumeExtrudeProgram.h">
+            <BuildOrder>422</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreSharedPtr.h">
+            <BuildOrder>423</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreSimpleRenderable.h">
+            <BuildOrder>424</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreSimpleSpline.h">
+            <BuildOrder>425</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreSingleton.h">
+            <BuildOrder>426</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreSkeleton.h">
+            <BuildOrder>427</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreSkeletonFileFormat.h">
+            <BuildOrder>428</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreSkeletonInstance.h">
+            <BuildOrder>429</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreSkeletonManager.h">
+            <BuildOrder>430</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreSkeletonSerializer.h">
+            <BuildOrder>431</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreSmallVector.h">
+            <BuildOrder>432</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreSphere.h">
+            <BuildOrder>433</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreSpotShadowFadePng.h">
+            <BuildOrder>434</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreStableHeaders.h">
+            <BuildOrder>435</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreStaticFaceGroup.h">
+            <BuildOrder>436</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreStaticGeometry.h">
+            <BuildOrder>437</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreStdHeaders.h">
+            <BuildOrder>438</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreStreamSerialiser.h">
+            <BuildOrder>439</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreString.h">
+            <BuildOrder>440</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreStringConverter.h">
+            <BuildOrder>441</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreStringInterface.h">
+            <BuildOrder>442</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreStringSerialiser.h">
+            <BuildOrder>443</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreStringVector.h">
+            <BuildOrder>444</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreSubEntity.h">
+            <BuildOrder>445</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreSubMesh.h">
+            <BuildOrder>446</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreTagPoint.h">
+            <BuildOrder>447</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreTangentSpaceCalc.h">
+            <BuildOrder>448</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreTechnique.h">
+            <BuildOrder>449</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreTextAreaOverlayElement.h">
+            <BuildOrder>450</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreTexture.h">
+            <BuildOrder>451</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreTextureManager.h">
+            <BuildOrder>452</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreTextureUnitState.h">
+            <BuildOrder>453</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreTimer.h">
+            <BuildOrder>454</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreUnifiedHighLevelGpuProgram.h">
+            <BuildOrder>455</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreUserObjectBindings.h">
+            <BuildOrder>456</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreUTFString.h">
+            <BuildOrder>457</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreVector2.h">
+            <BuildOrder>458</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreVector3.h">
+            <BuildOrder>459</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreVector4.h">
+            <BuildOrder>207</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreVertexBoneAssignment.h">
+            <BuildOrder>208</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreVertexIndexData.h">
+            <BuildOrder>209</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreViewport.h">
+            <BuildOrder>210</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreWindowEventUtilities.h">
+            <BuildOrder>211</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreWireBoundingBox.h">
+            <BuildOrder>212</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreWorkQueue.h">
+            <BuildOrder>213</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\OgreZip.h">
+            <BuildOrder>214</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\WIN32\OgreConfigDialogImp.h">
+            <BuildOrder>464</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\WIN32\OgreErrorDialogImp.h">
+            <BuildOrder>462</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\include\WIN32\OgreTimerImp.h">
+            <BuildOrder>463</BuildOrder>
+        </None>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreAlignedAllocator.cpp">
+            <BuildOrder>14</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreAnimable.cpp">
+            <BuildOrder>15</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreAnimation.cpp">
+            <BuildOrder>16</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreAnimationState.cpp">
+            <BuildOrder>17</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreAnimationTrack.cpp">
+            <BuildOrder>18</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreArchiveManager.cpp">
+            <BuildOrder>19</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreAutoParamDataSource.cpp">
+            <BuildOrder>20</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreAxisAlignedBox.cpp">
+            <BuildOrder>21</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreBillboard.cpp">
+            <BuildOrder>22</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreBillboardChain.cpp">
+            <BuildOrder>23</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreBillboardParticleRenderer.cpp">
+            <BuildOrder>24</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreBillboardSet.cpp">
+            <BuildOrder>25</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreBone.cpp">
+            <BuildOrder>26</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreBorderPanelOverlayElement.cpp">
+            <BuildOrder>27</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreCamera.cpp">
+            <BuildOrder>28</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreCodec.cpp">
+            <BuildOrder>29</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreColourValue.cpp">
+            <BuildOrder>30</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreCommon.cpp">
+            <BuildOrder>31</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreCompositionPass.cpp">
+            <BuildOrder>32</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreCompositionTargetPass.cpp">
+            <BuildOrder>33</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreCompositionTechnique.cpp">
+            <BuildOrder>34</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreCompositor.cpp">
+            <BuildOrder>35</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreCompositorChain.cpp">
+            <BuildOrder>36</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreCompositorInstance.cpp">
+            <BuildOrder>37</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreCompositorManager.cpp">
+            <BuildOrder>38</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreConfigFile.cpp">
+            <BuildOrder>39</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreControllerManager.cpp">
+            <BuildOrder>40</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreConvexBody.cpp">
+            <BuildOrder>41</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreDataStream.cpp">
+            <BuildOrder>42</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreDDSCodec.cpp">
+            <BuildOrder>43</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreDefaultHardwareBufferManager.cpp">
+            <BuildOrder>44</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreDefaultSceneQueries.cpp">
+            <BuildOrder>45</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreDeflate.cpp">
+            <BuildOrder>46</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreDepthBuffer.cpp">
+            <BuildOrder>47</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreDistanceLodStrategy.cpp">
+            <BuildOrder>48</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreDualQuaternion.cpp">
+            <BuildOrder>49</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreDynLib.cpp">
+            <BuildOrder>50</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreDynLibManager.cpp">
+            <BuildOrder>51</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreEdgeListBuilder.cpp">
+            <BuildOrder>52</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreEntity.cpp">
+            <BuildOrder>53</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreException.cpp">
+            <BuildOrder>54</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreExternalTextureSource.cpp">
+            <BuildOrder>55</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreExternalTextureSourceManager.cpp">
+            <BuildOrder>56</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreFileSystem.cpp">
+            <BuildOrder>57</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreFont.cpp">
+            <BuildOrder>58</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreFontManager.cpp">
+            <BuildOrder>59</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreFreeImageCodec.cpp">
+            <BuildOrder>60</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreFrustum.cpp">
+            <BuildOrder>61</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreGpuProgram.cpp">
+            <BuildOrder>62</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreGpuProgramManager.cpp">
+            <BuildOrder>63</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreGpuProgramParams.cpp">
+            <BuildOrder>64</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreGpuProgramUsage.cpp">
+            <BuildOrder>65</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreHardwareBufferManager.cpp">
+            <BuildOrder>66</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreHardwareIndexBuffer.cpp">
+            <BuildOrder>67</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreHardwareOcclusionQuery.cpp">
+            <BuildOrder>68</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreHardwarePixelBuffer.cpp">
+            <BuildOrder>69</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreHardwareVertexBuffer.cpp">
+            <BuildOrder>70</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreHighLevelGpuProgram.cpp">
+            <BuildOrder>71</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreHighLevelGpuProgramManager.cpp">
+            <BuildOrder>72</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreImage.cpp">
+            <BuildOrder>76</BuildOrder>
+        </CppCompile>
+        <None Include="..\OgreCPPBuilder\OgreMain\src\OgreImageResampler.h">
+            <BuildOrder>77</BuildOrder>
+        </None>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreInstanceBatch.cpp">
+            <BuildOrder>78</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreInstanceBatchHW.cpp">
+            <BuildOrder>79</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreInstanceBatchHW_VTF.cpp">
+            <BuildOrder>80</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreInstanceBatchShader.cpp">
+            <BuildOrder>81</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreInstanceBatchVTF.cpp">
+            <BuildOrder>82</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreInstancedEntity.cpp">
+            <BuildOrder>83</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreInstancedGeometry.cpp">
+            <BuildOrder>84</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreInstanceManager.cpp">
+            <BuildOrder>85</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreKeyFrame.cpp">
+            <BuildOrder>86</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreLight.cpp">
+            <BuildOrder>87</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreLodStrategy.cpp">
+            <BuildOrder>88</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreLodStrategyManager.cpp">
+            <BuildOrder>89</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreLog.cpp">
+            <BuildOrder>90</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreLogManager.cpp">
+            <BuildOrder>91</BuildOrder>
+        </CppCompile>
+        <None Include="..\OgreCPPBuilder\OgreMain\src\ogremain.map"/>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreManualObject.cpp">
+            <BuildOrder>93</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreMaterial.cpp">
+            <BuildOrder>94</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreMaterialManager.cpp">
+            <BuildOrder>95</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreMaterialSerializer.cpp">
+            <BuildOrder>96</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreMath.cpp">
+            <BuildOrder>97</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreMatrix3.cpp">
+            <BuildOrder>98</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreMatrix4.cpp">
+            <BuildOrder>99</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreMemoryAllocatedObject.cpp">
+            <BuildOrder>100</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreMemoryNedAlloc.cpp">
+            <BuildOrder>101</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreMemoryNedPooling.cpp">
+            <BuildOrder>102</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreMemoryTracker.cpp">
+            <BuildOrder>103</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreMesh.cpp">
+            <BuildOrder>104</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreMeshManager.cpp">
+            <BuildOrder>105</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreMeshSerializer.cpp">
+            <BuildOrder>106</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreMeshSerializerImpl.cpp">
+            <BuildOrder>107</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreMovableObject.cpp">
+            <BuildOrder>108</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreMovablePlane.cpp">
+            <BuildOrder>109</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreNode.cpp">
+            <BuildOrder>110</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreNumerics.cpp">
+            <BuildOrder>111</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreOptimisedUtil.cpp">
+            <BuildOrder>112</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreOptimisedUtilGeneral.cpp">
+            <BuildOrder>113</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreOptimisedUtilSSE.cpp">
+            <BuildOrder>114</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreOverlay.cpp">
+            <BuildOrder>115</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreOverlayContainer.cpp">
+            <BuildOrder>116</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreOverlayElement.cpp">
+            <BuildOrder>117</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreOverlayElementCommands.cpp">
+            <BuildOrder>118</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreOverlayElementFactory.cpp">
+            <BuildOrder>119</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreOverlayManager.cpp">
+            <BuildOrder>120</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgrePanelOverlayElement.cpp">
+            <BuildOrder>121</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreParticle.cpp">
+            <BuildOrder>122</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreParticleEmitter.cpp">
+            <BuildOrder>123</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreParticleEmitterCommands.cpp">
+            <BuildOrder>124</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreParticleIterator.cpp">
+            <BuildOrder>125</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreParticleSystem.cpp">
+            <BuildOrder>127</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreParticleSystemManager.cpp">
+            <BuildOrder>128</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgrePass.cpp">
+            <BuildOrder>129</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgrePatchMesh.cpp">
+            <BuildOrder>130</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgrePatchSurface.cpp">
+            <BuildOrder>131</BuildOrder>
+        </CppCompile>
+        <None Include="..\OgreCPPBuilder\OgreMain\src\OgrePixelConversions.h">
+            <BuildOrder>132</BuildOrder>
+        </None>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgrePixelCountLodStrategy.cpp">
+            <BuildOrder>133</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgrePixelFormat.cpp">
+            <BuildOrder>134</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgrePlane.cpp">
+            <BuildOrder>135</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgrePlatformInformation.cpp">
+            <BuildOrder>136</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgrePolygon.cpp">
+            <BuildOrder>137</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgrePose.cpp">
+            <BuildOrder>138</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgrePrecompiledHeaders.cpp">
+            <BuildOrder>139</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgrePredefinedControllers.cpp">
+            <BuildOrder>140</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgrePrefabFactory.cpp">
+            <BuildOrder>141</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreProfiler.cpp">
+            <BuildOrder>142</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreProgressiveMesh.cpp">
+            <BuildOrder>143</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgrePVRTCCodec.cpp">
+            <BuildOrder>144</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreQuaternion.cpp">
+            <BuildOrder>145</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreRectangle2D.cpp">
+            <BuildOrder>146</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreRenderQueue.cpp">
+            <BuildOrder>147</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreRenderQueueInvocation.cpp">
+            <BuildOrder>148</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreRenderQueueSortingGrouping.cpp">
+            <BuildOrder>149</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreRenderSystem.cpp">
+            <BuildOrder>150</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreRenderSystemCapabilities.cpp">
+            <BuildOrder>151</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreRenderSystemCapabilitiesManager.cpp">
+            <BuildOrder>152</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreRenderSystemCapabilitiesSerializer.cpp">
+            <BuildOrder>153</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreRenderTarget.cpp">
+            <BuildOrder>154</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreRenderTexture.cpp">
+            <BuildOrder>155</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreRenderToVertexBuffer.cpp">
+            <BuildOrder>156</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreRenderWindow.cpp">
+            <BuildOrder>157</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreResource.cpp">
+            <BuildOrder>158</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreResourceBackgroundQueue.cpp">
+            <BuildOrder>159</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreResourceGroupManager.cpp">
+            <BuildOrder>160</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreResourceManager.cpp">
+            <BuildOrder>161</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreRibbonTrail.cpp">
+            <BuildOrder>162</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreRoot.cpp">
+            <BuildOrder>163</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreRotationSpline.cpp">
+            <BuildOrder>164</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreSceneManager.cpp">
+            <BuildOrder>165</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreSceneManagerEnumerator.cpp">
+            <BuildOrder>166</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreSceneNode.cpp">
+            <BuildOrder>167</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreSceneQuery.cpp">
+            <BuildOrder>168</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreScriptCompiler.cpp">
+            <BuildOrder>169</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreScriptLexer.cpp">
+            <BuildOrder>170</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreScriptParser.cpp">
+            <BuildOrder>171</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreScriptTranslator.cpp">
+            <BuildOrder>172</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreSearchOps.cpp">
+            <BuildOrder>173</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreSerializer.cpp">
+            <BuildOrder>174</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreShadowCameraSetup.cpp">
+            <BuildOrder>175</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreShadowCameraSetupFocused.cpp">
+            <BuildOrder>176</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreShadowCameraSetupLiSPSM.cpp">
+            <BuildOrder>177</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreShadowCameraSetupPlaneOptimal.cpp">
+            <BuildOrder>178</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreShadowCameraSetupPSSM.cpp">
+            <BuildOrder>179</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreShadowCaster.cpp">
+            <BuildOrder>180</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreShadowTextureManager.cpp">
+            <BuildOrder>181</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreShadowVolumeExtrudeProgram.cpp">
+            <BuildOrder>182</BuildOrder>
+        </CppCompile>
+        <None Include="..\OgreCPPBuilder\OgreMain\src\OgreSIMDHelper.h">
+            <BuildOrder>183</BuildOrder>
+        </None>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreSimpleRenderable.cpp">
+            <BuildOrder>184</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreSimpleSpline.cpp">
+            <BuildOrder>185</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreSkeleton.cpp">
+            <BuildOrder>186</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreSkeletonInstance.cpp">
+            <BuildOrder>187</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreSkeletonManager.cpp">
+            <BuildOrder>188</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreSkeletonSerializer.cpp">
+            <BuildOrder>189</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreSmallVector.cpp">
+            <BuildOrder>190</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreStaticGeometry.cpp">
+            <BuildOrder>191</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreStreamSerialiser.cpp">
+            <BuildOrder>192</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreString.cpp">
+            <BuildOrder>193</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreStringConverter.cpp">
+            <BuildOrder>194</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreStringInterface.cpp">
+            <BuildOrder>195</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreStringSerialiser.cpp">
+            <BuildOrder>196</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreSubEntity.cpp">
+            <BuildOrder>197</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreSubMesh.cpp">
+            <BuildOrder>198</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreTagPoint.cpp">
+            <BuildOrder>199</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreTangentSpaceCalc.cpp">
+            <BuildOrder>200</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreTechnique.cpp">
+            <BuildOrder>201</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreTextAreaOverlayElement.cpp">
+            <BuildOrder>202</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreTexture.cpp">
+            <BuildOrder>203</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreTextureManager.cpp">
+            <BuildOrder>204</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreTextureUnitState.cpp">
+            <BuildOrder>205</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreUnifiedHighLevelGpuProgram.cpp">
+            <BuildOrder>206</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreUserObjectBindings.cpp">
+            <BuildOrder>3</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreUTFString.cpp">
+            <BuildOrder>4</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreVector2.cpp">
+            <BuildOrder>5</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreVector3.cpp">
+            <BuildOrder>6</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreVector4.cpp">
+            <BuildOrder>7</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreVertexIndexData.cpp">
+            <BuildOrder>8</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreViewport.cpp">
+            <BuildOrder>9</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreWindowEventUtilities.cpp">
+            <BuildOrder>10</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreWireBoundingBox.cpp">
+            <BuildOrder>11</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\OgreWorkQueue.cpp">
+            <BuildOrder>12</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\Threading\OgreDefaultWorkQueueStandard.cpp">
+            <BuildOrder>467</BuildOrder>
+        </CppCompile>
+        <RcItem Include="..\OgreCPPBuilder\OgreMain\src\WIN32\ogre.ico">
+            <ResourceType>ICON</ResourceType>
+            <ResourceId>Icon_1</ResourceId>
+        </RcItem>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\WIN32\OgreConfigDialog.cpp">
+            <BuildOrder>454</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\WIN32\OgreErrorDialog.cpp">
+            <BuildOrder>455</BuildOrder>
+        </CppCompile>
+        <RcItem Include="..\OgreCPPBuilder\OgreMain\src\WIN32\ogrelogo.bmp">
+            <ResourceType>BITMAP</ResourceType>
+            <ResourceId>Bitmap_1</ResourceId>
+        </RcItem>
+        <CppCompile Include="..\OgreCPPBuilder\OgreMain\src\WIN32\OgreTimer.cpp">
+            <BuildOrder>456</BuildOrder>
+        </CppCompile>
+        <ResourceCompile Include="..\OgreCPPBuilder\OgreMain\src\WIN32\OgreWin32Resources.rc">
+            <Form>OgreWin32Resources.res</Form>
+            <BuildOrder>459</BuildOrder>
+        </ResourceCompile>
+        <None Include="..\OgreCPPBuilder\OgreMain\src\WIN32\resource.h">
+            <BuildOrder>458</BuildOrder>
+        </None>
+        <None Include="..\OgreCPPBuilder\OgreMain\src\WIN32\winres.h">
+            <BuildOrder>457</BuildOrder>
+        </None>
+        <LibFiles Include="Win32\Debug\freetype.lib" Condition="'$(Platform)'=='Win32'">
+            <BuildOrder>467</BuildOrder>
+            <IgnorePath>true</IgnorePath>
+        </LibFiles>
+        <LibFiles Include="Win32\Debug\free_image.lib" Condition="'$(Platform)'=='Win32'">
+            <BuildOrder>466</BuildOrder>
+            <IgnorePath>true</IgnorePath>
+        </LibFiles>
+        <LibFiles Include="Win32\Debug\zlib.lib" Condition="'$(Platform)'=='Win32'">
+            <BuildOrder>465</BuildOrder>
+            <IgnorePath>true</IgnorePath>
+        </LibFiles>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>CPlusPlusBuilder.Personality.12</Borland.Personality>
+        <Borland.ProjectType>CppDynamicLibrary</Borland.ProjectType>
+        <BorlandProject>
+            <CPlusPlusBuilder.Personality>
+                <ProjectProperties>
+                    <ProjectProperties Name="AutoShowDeps">False</ProjectProperties>
+                    <ProjectProperties Name="ManagePaths">True</ProjectProperties>
+                    <ProjectProperties Name="VerifyPackages">True</ProjectProperties>
+                    <ProjectProperties Name="IndexFiles">True</ProjectProperties>
+                </ProjectProperties>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k220.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp220.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+                </Excluded_Packages>
+            </CPlusPlusBuilder.Personality>
+            <Deployment Version="2">
+                <DeployFile LocalName="$(BDS)\Redist\iossimulator\libPCRE.dylib" Class="DependencyModule">
+                    <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(UsingDelphiRTL)'=='true'" LocalName="$(BDS)\bin64\borlndmm.dll" Class="DependencyModule">
+                    <Platform Name="Win64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32220mt.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx32\libcgcrtl.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32220.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName=".\Win32\Debug\ogre.tds" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win32">
+                        <RemoteName>ogre.tds</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName=".\Win64\Debug\ogre.dll" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win64">
+                        <RemoteName>ogre.dll</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin64\cc64220mt.dll" Class="DependencyModule">
+                    <Platform Name="Win64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="$(BDS)\Redist\iossimulator\libcgunwind.1.0.dylib" Class="DependencyModule">
+                    <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin64\cc64220.dll" Class="DependencyModule">
+                    <Platform Name="Win64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx32\libcgstl.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(UsingDelphiRTL)'=='true'" LocalName="$(BDS)\bin\borlndmm.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName=".\Win32\Debug\ogre.dll" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>ogre.dll</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployClass Required="true" Name="DependencyPackage">
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.bpl</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DependencyModule">
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.dll;.bpl</Extensions>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch2048">
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXInfoPList"/>
+                <DeployClass Name="ProjectiOSDeviceDebug">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>..\$(PROJECTNAME).app.dSYM\Contents\Resources\DWARF</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <RemoteDir>..\$(PROJECTNAME).app.dSYM\Contents\Resources\DWARF</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage470">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-normal</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidLibnativeX86File">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\x86</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSResource">
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXEntitlements"/>
+                <DeployClass Name="AndroidGDBServer">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi-v7a</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch640">
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage960">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xlarge</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon96">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xhdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch320">
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon144">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xxhdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidLibnativeMipsFile">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\mips</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidSplashImageDef">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DebugSymbols">
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DependencyFramework">
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                        <Extensions>.framework</Extensions>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage426">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-small</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSEntitlements"/>
+                <DeployClass Name="AdditionalDebugSymbols">
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidClassesDexFile">
+                    <Platform Name="Android">
+                        <RemoteDir>classes</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSInfoPList"/>
+                <DeployClass Name="iPad_Launch1024">
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_DefaultAppIcon">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXResource">
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\Resources</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSDeviceResourceRules"/>
+                <DeployClass Name="iPad_Launch768">
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Required="true" Name="ProjectOutput">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi-v7a</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidLibnativeArmeabiFile">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage640">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-large</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="File">
+                    <Platform Name="Android">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch640x1136">
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon36">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-ldpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidSplashStyles">
+                    <Platform Name="Android">
+                        <RemoteDir>res\values</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch1536">
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon48">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-mdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon72">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-hdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectAndroidManifest">
+                    <Platform Name="Android">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
+            </Deployment>
+            <Platforms>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">True</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(BDS)\Bin\CodeGear.Cpp.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Cpp.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+    <Import Project="$(MSBuildProjectName).deployproj" Condition="Exists('$(MSBuildProjectName).deployproj')"/>
+</Project>

@@ -1,0 +1,22 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ILINK_AdditionalOptions>-GHtds=0x12000000 -GVTEXT=0x12000000 -GVRODATA=0x12000000 -GVDEBUG_INFO=0x12000000 -GV_DEBUG_STR=0x12000000</ILINK_AdditionalOptions>
+        <BCC_OptimizeForSize>true</BCC_OptimizeForSize>
+        <BCC_DisableOptimizations>false</BCC_DisableOptimizations>
+        <ILINK_FullDebugInfo>false</ILINK_FullDebugInfo>
+        <ILINK_HeapReserveSize>0x7F000000</ILINK_HeapReserveSize>
+        <ILINK_StackReserveSize>0x7F000000</ILINK_StackReserveSize>
+        <BCC_SourceDebuggingOn>false</BCC_SourceDebuggingOn>
+        <BCC_PCHUsage>None</BCC_PCHUsage>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+    </PropertyGroup>
+    <ProjectExtensions>
+        <Borland.Personality>CPlusPlusBuilder.Personality.12</Borland.Personality>
+        <Borland.ProjectType>OptionSet</Borland.ProjectType>
+        <BorlandProject>
+            <CPlusPlusBuilder.Personality/>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+</Project>
