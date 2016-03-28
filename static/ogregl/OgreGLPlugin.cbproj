@@ -1,0 +1,951 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{9D9B6B66-8E24-4A20-9A34-CD8A9B78E553}</ProjectGuid>
+        <ProjectVersion>18.1</ProjectVersion>
+        <FrameworkType>None</FrameworkType>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Release</Config>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <TargetedPlatforms>1</TargetedPlatforms>
+        <AppType>StaticLibrary</AppType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Android' and '$(Base)'=='true') or '$(Base_Android)'!=''">
+        <Base_Android>true</Base_Android>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='iOSDevice32' and '$(Base)'=='true') or '$(Base_iOSDevice32)'!=''">
+        <Base_iOSDevice32>true</Base_iOSDevice32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='iOSDevice64' and '$(Base)'=='true') or '$(Base_iOSDevice64)'!=''">
+        <Base_iOSDevice64>true</Base_iOSDevice64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='OSX32' and '$(Base)'=='true') or '$(Base_OSX32)'!=''">
+        <Base_OSX32>true</Base_OSX32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+        <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+        <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <RunBCCOutOfProcess>true</RunBCCOutOfProcess>
+        <Defines>WIN32;$(Defines)</Defines>
+        <VerInfo_Locale>1049</VerInfo_Locale>
+        <SubProcessesNumber>4</SubProcessesNumber>
+        <IncludePath>..\include\;..\..\..\OgreCPPBuilder\RenderSystems\GL\src\GLSL\include\;..\..\..\OgreCPPBuilder\RenderSystems\GL\include\;..\..\..\OgreCPPBuilder\RenderSystems\GL\src\GLSL\src\;..\..\..\OgreCPPBuilder\RenderSystems\GL\src\win32\;..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\winheaders\;..\..\..\OgreCPPBuilder\RenderSystems\GL\src\atifs\src\;..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\;..\..\..\OgreCPPBuilder\RenderSystems\GL\src\;..\..\..\OgreCPPBuilder\RenderSystems\GL\src\atifs\include\;..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\winheaders\;..\..\..\OgreCPPBuilder\OgreMain\include;$(IncludePath)</IncludePath>
+        <ProjectType>CppStaticLibrary</ProjectType>
+        <Multithreaded>true</Multithreaded>
+        <SanitizedProjectName>OgreGLPlugin</SanitizedProjectName>
+        <_TCHARMapping>char</_TCHARMapping>
+        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
+        <DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
+        <IntermediateOutputDir>.\$(Platform)\$(Config)</IntermediateOutputDir>
+        <FinalOutputDir>.\$(Platform)\$(Config)</FinalOutputDir>
+        <BCC_wpar>false</BCC_wpar>
+        <BCC_OptimizeForSpeed>true</BCC_OptimizeForSpeed>
+        <BCC_ExtendedErrorInfo>true</BCC_ExtendedErrorInfo>
+        <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\release\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Android)'!=''">
+        <PackageImports>bindcomp;bindcompdbx;bindcompfmx;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapFireDAC;DataSnapNativeClient;DataSnapProviderClient;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXInterBaseDriver;DBXSqliteDriver;dsnap;dsnapxml;emsclient;emsclientfiredac;FireDAC;FireDACCommon;FireDACCommonDriver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACSqliteDriver;fmx;fmxFireDAC;FMXTee;FmxTeeUI;ibmonitor;ibxbindings;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;tethering;xmlrtl;$(PackageImports)</PackageImports>
+        <EnabledSysJars>android-support-v4.dex.jar;apk-expansion.dex.jar;cloud-messaging.dex.jar;fmx.dex.jar;google-analytics-v2.dex.jar;google-play-billing.dex.jar;google-play-licensing.dex.jar;google-play-services.dex.jar</EnabledSysJars>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_iOSDevice32)'!=''">
+        <PackageImports>bindcomp;bindcompdbx;bindcompfmx;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapFireDAC;DataSnapNativeClient;DataSnapProviderClient;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXInterBaseDriver;DBXSqliteDriver;dsnap;dsnapxml;emsclient;emsclientfiredac;FireDAC;FireDACCommon;FireDACCommonDriver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACSqliteDriver;fmx;fmxase;fmxFireDAC;FMXTee;FmxTeeUI;ibmonitor;ibxbindings;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;tethering;xmlrtl;$(PackageImports)</PackageImports>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_iOSDevice64)'!=''">
+        <PackageImports>bindcomp;bindcompdbx;bindcompfmx;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapFireDAC;DataSnapNativeClient;DataSnapProviderClient;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXInterBaseDriver;DBXSqliteDriver;dsnap;dsnapxml;emsclient;emsclientfiredac;FireDAC;FireDACCommon;FireDACCommonDriver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACSqliteDriver;fmx;fmxase;fmxFireDAC;FMXTee;FmxTeeUI;ibmonitor;ibxbindings;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;tethering;xmlrtl;$(PackageImports)</PackageImports>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_OSX32)'!=''">
+        <PackageImports>bindcomp;bindcompdbx;bindcompfmx;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapFireDAC;DataSnapIndy10ServerTransport;DataSnapNativeClient;DataSnapProviderClient;DataSnapServer;DataSnapServerMidas;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMySQLDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;dsnap;dsnapxml;emsclient;emsclientfiredac;FireDAC;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACMongoDBDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;FireDACTDataDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;ibmonitor;ibxbindings;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;tethering;xmlrtl;$(PackageImports)</PackageImports>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <PackageImports>adortl;appanalytics;bcbie;bcbsmp;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapConnectors;DatasnapConnectorsFreePascal;DataSnapFireDAC;DataSnapIndy10ServerTransport;DataSnapNativeClient;DataSnapProviderClient;DataSnapServer;DataSnapServerMidas;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXDb2Driver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMSSQLDriver;DBXMySQLDriver;DBXOdbcDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;DBXSybaseASEDriver;dsnap;dsnapcon;dsnapxml;emsclient;emsclientfiredac;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACDb2Driver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACInfxDriver;FireDACMongoDBDriver;FireDACMSAccDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;FireDACTDataDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;frx23;frxDB23;frxe23;frxTee23;ibmonitor;ibxbindings;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;Intraweb;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;svn;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldsnap;vclFireDAC;vclib;vclie;vclimg;VCLRESTComponents;vclribbon;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <PackageImports>adortl;appanalytics;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapConnectors;DatasnapConnectorsFreePascal;DataSnapFireDAC;DataSnapIndy10ServerTransport;DataSnapNativeClient;DataSnapProviderClient;DataSnapServer;DataSnapServerMidas;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXDb2Driver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMSSQLDriver;DBXMySQLDriver;DBXOdbcDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;DBXSybaseASEDriver;dsnap;dsnapcon;dsnapxml;emsclient;emsclientfiredac;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACDb2Driver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACInfxDriver;FireDACMongoDBDriver;FireDACMSAccDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;FireDACTDataDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;ibmonitor;ibxbindings;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;Intraweb;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldsnap;vclFireDAC;vclib;vclie;vclimg;VCLRESTComponents;vclribbon;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
+        <BCC_DisableOptimizations>true</BCC_DisableOptimizations>
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+        <Defines>_DEBUG;$(Defines)</Defines>
+        <BCC_InlineFunctionExpansion>false</BCC_InlineFunctionExpansion>
+        <BCC_UseRegisterVariables>None</BCC_UseRegisterVariables>
+        <DCC_Define>DEBUG</DCC_Define>
+        <BCC_DebugLineNumbers>true</BCC_DebugLineNumbers>
+        <TASM_DisplaySourceLines>true</TASM_DisplaySourceLines>
+        <BCC_StackFrames>true</BCC_StackFrames>
+        <ILINK_FullDebugInfo>true</ILINK_FullDebugInfo>
+        <TASM_Debugging>Full</TASM_Debugging>
+        <BCC_SourceDebuggingOn>true</BCC_SourceDebuggingOn>
+        <BCC_EnableCPPExceptions>true</BCC_EnableCPPExceptions>
+        <BCC_DisableFramePtrElimOpt>true</BCC_DisableFramePtrElimOpt>
+        <BCC_DisableSpellChecking>true</BCC_DisableSpellChecking>
+        <CLANG_UnwindTables>true</CLANG_UnwindTables>
+        <ILINK_LibraryPath>$(BDSLIB)\$(PLATFORM)\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\debug\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <VerInfo_Locale>1049</VerInfo_Locale>
+        <Manifest_File>None</Manifest_File>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <Defines>NDEBUG;$(Defines)</Defines>
+        <TASM_Debugging>None</TASM_Debugging>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <VerInfo_Locale>1049</VerInfo_Locale>
+        <BCC_SelectedWarnings>false</BCC_SelectedWarnings>
+        <BCC_DisableWarnings>true</BCC_DisableWarnings>
+        <Manifest_File>None</Manifest_File>
+        <BCC_PCHUsage>UseDontGenerate</BCC_PCHUsage>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLATIFSInit.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLContext.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLDefaultHardwareBufferManager.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLDepthBuffer.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLFBOMultiRenderTarget.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLFBORenderTexture.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLFrameBufferObject.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLGpuNvparseProgram.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLGpuProgram.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLGpuProgramManager.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLHardwareBufferManager.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLHardwareIndexBuffer.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLHardwareOcclusionQuery.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLHardwarePixelBuffer.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLHardwareVertexBuffer.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLPBRenderTexture.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLPBuffer.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLPixelFormat.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLPlugin.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLPrerequisites.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLRenderSystem.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLRenderTexture.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLRenderToVertexBuffer.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLSupport.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLTexture.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreGLTextureManager.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreWin32Context.h">
+            <BuildOrder>121</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreWin32GLSupport.h">
+            <BuildOrder>122</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreWin32Prerequisites.h">
+            <BuildOrder>123</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreWin32RenderTexture.h">
+            <BuildOrder>119</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\include\OgreWin32Window.h">
+            <BuildOrder>120</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\atifs\include\ATI_FS_GLGpuProgram.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\atifs\include\Compiler2Pass.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\atifs\include\ps_1_4.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\atifs\src\ATI_FS_GLGpuProgram.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\atifs\src\Compiler2Pass.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\atifs\src\ps_1_4.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\glew.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\GLSL\include\OgreGLSLExtSupport.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\GLSL\include\OgreGLSLGpuProgram.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\GLSL\include\OgreGLSLLinkProgram.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\GLSL\include\OgreGLSLLinkProgramManager.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\GLSL\include\OgreGLSLPreprocessor.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\GLSL\include\OgreGLSLProgram.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\GLSL\include\OgreGLSLProgramFactory.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\GLSL\src\OgreGLSLExtSupport.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\GLSL\src\OgreGLSLGpuProgram.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\GLSL\src\OgreGLSLLinkProgram.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\GLSL\src\OgreGLSLLinkProgramManager.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\GLSL\src\OgreGLSLPreprocessor.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\GLSL\src\OgreGLSLProgram.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\GLSL\src\OgreGLSLProgramFactory.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\avp1.0_impl.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\macro.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\nvparse.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\nvparse.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\nvparse_errors.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\nvparse_errors.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\nvparse_externs.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\ps1.0_program.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\ps1.0_program.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\rc1.0_combiners.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\rc1.0_combiners.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\rc1.0_final.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\rc1.0_final.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\rc1.0_general.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\rc1.0_general.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\rc1.0_register.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\ts1.0_inst.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\ts1.0_inst.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\ts1.0_inst_list.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\ts1.0_inst_list.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\vcp1.0_impl.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\vp1.0_impl.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\vs1.0_inst.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\vs1.0_inst.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\vs1.0_inst_list.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\vs1.0_inst_list.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\vsp1.0_impl.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\winheaders\unistd.h">
+            <BuildOrder>112</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\_ps1.0_lexer.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\_ps1.0_parser.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\_ps1.0_parser.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\_rc1.0_lexer.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\_rc1.0_parser.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\_rc1.0_parser.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\_ts1.0_lexer.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\_ts1.0_parser.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\_ts1.0_parser.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\_vs1.0_lexer.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\_vs1.0_parser.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\nvparse\_vs1.0_parser.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLATIFSInit.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLContext.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLDefaultHardwareBufferManager.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLDepthBuffer.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLEngineDll.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLFBOMultiRenderTarget.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLFBORenderTexture.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLFrameBufferObject.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLGpuNvparseProgram.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLGpuProgram.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLGpuProgramManager.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLHardwareBufferManager.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLHardwareIndexBuffer.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLHardwareOcclusionQuery.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLHardwarePixelBuffer.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLHardwareVertexBuffer.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLPBRenderTexture.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLPixelFormat.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLPlugin.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLRenderSystem.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLRenderTexture.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLRenderToVertexBuffer.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLSupport.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLTexture.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreGLTextureManager.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreWin32GLSupport.cpp">
+            <BuildOrder>118</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreWin32RenderTexture.cpp">
+            <BuildOrder>116</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\OgreWin32Window.cpp">
+            <BuildOrder>117</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\win32\OgreGLUtil.h">
+            <BuildOrder>114</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\OgreCPPBuilder\RenderSystems\GL\src\win32\OgreWin32Context.cpp">
+            <BuildOrder>115</BuildOrder>
+        </CppCompile>
+        <None Include="..\include\OgreBuildSettings.h">
+            <BuildOrder>122</BuildOrder>
+        </None>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>CPlusPlusBuilder.Personality.12</Borland.Personality>
+        <Borland.ProjectType>CppStaticLibrary</Borland.ProjectType>
+        <BorlandProject>
+            <CPlusPlusBuilder.Personality>
+                <ProjectProperties>
+                    <ProjectProperties Name="AutoShowDeps">False</ProjectProperties>
+                    <ProjectProperties Name="ManagePaths">True</ProjectProperties>
+                    <ProjectProperties Name="VerifyPackages">True</ProjectProperties>
+                    <ProjectProperties Name="IndexFiles">False</ProjectProperties>
+                </ProjectProperties>
+            </CPlusPlusBuilder.Personality>
+            <Deployment Version="2">
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx32\libcgcrtl.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32230.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(UsingDelphiRTL)'=='true'" LocalName="$(BDS)\bin\borlndmm.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(UsingDelphiRTL)'=='true'" LocalName="$(BDS)\bin64\borlndmm.dll" Class="DependencyModule">
+                    <Platform Name="Win64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx32\libcgstl.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32230mt.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="$(BDS)\Redist\iossimulator\libcgunwind.1.0.dylib" Class="DependencyModule">
+                    <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName=".\Win32\Debug\OgreGLPlugin.lib" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>OgreGLPlugin.lib</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName=".\Win32\Debug\OgreGLPlugin.tds" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win32">
+                        <RemoteName>OgreGLPlugin.tds</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="$(BDS)\Redist\iossimulator\libPCRE.dylib" Class="DependencyModule">
+                    <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin64\cc64230mt.dll" Class="DependencyModule">
+                    <Platform Name="Win64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin64\cc64230.dll" Class="DependencyModule">
+                    <Platform Name="Win64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployClass Name="DependencyModule">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.dll;.bpl</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXResource">
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\Resources</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidClassesDexFile">
+                    <Platform Name="Android">
+                        <RemoteDir>classes</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AdditionalDebugSymbols">
+                    <Platform Name="Win32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch768">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon144">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xxhdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidLibnativeMipsFile">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\mips</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Required="true" Name="ProjectOutput">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi-v7a</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DependencyFramework">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                        <Extensions>.framework</Extensions>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch640">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch1024">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSDeviceDebug">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>..\$(PROJECTNAME).app.dSYM\Contents\Resources\DWARF</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <RemoteDir>..\$(PROJECTNAME).app.dSYM\Contents\Resources\DWARF</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidLibnativeX86File">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\x86</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch320">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSInfoPList"/>
+                <DeployClass Name="AndroidLibnativeArmeabiFile">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DebugSymbols">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch1536">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage470">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-normal</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon96">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xhdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage640">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-large</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch640x1136">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSEntitlements"/>
+                <DeployClass Name="Android_LauncherIcon72">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-hdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidGDBServer">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi-v7a</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXInfoPList"/>
+                <DeployClass Name="ProjectOSXEntitlements"/>
+                <DeployClass Name="iPad_Launch2048">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidSplashStyles">
+                    <Platform Name="Android">
+                        <RemoteDir>res\values</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage426">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-small</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidSplashImageDef">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSResource">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectAndroidManifest">
+                    <Platform Name="Android">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_DefaultAppIcon">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="File">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="Android">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidServiceOutput">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi-v7a</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Required="true" Name="DependencyPackage">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.bpl</Extensions>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon48">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-mdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage960">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xlarge</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon36">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-ldpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSDeviceResourceRules"/>
+                <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
+            </Deployment>
+            <Platforms>
+                <Platform value="Android">False</Platform>
+                <Platform value="iOSDevice32">False</Platform>
+                <Platform value="iOSDevice64">False</Platform>
+                <Platform value="OSX32">False</Platform>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">False</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(BDS)\Bin\CodeGear.Cpp.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Cpp.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+    <Import Project="$(MSBuildProjectName).deployproj" Condition="Exists('$(MSBuildProjectName).deployproj')"/>
+</Project>
