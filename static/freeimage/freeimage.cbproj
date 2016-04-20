@@ -1,0 +1,2094 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{01E2A669-16D3-4D1B-B8BF-045142AC4943}</ProjectGuid>
+        <ProjectVersion>18.1</ProjectVersion>
+        <FrameworkType>None</FrameworkType>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Release</Config>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <TargetedPlatforms>1</TargetedPlatforms>
+        <AppType>StaticLibrary</AppType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Android' and '$(Base)'=='true') or '$(Base_Android)'!=''">
+        <Base_Android>true</Base_Android>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='iOSDevice32' and '$(Base)'=='true') or '$(Base_iOSDevice32)'!=''">
+        <Base_iOSDevice32>true</Base_iOSDevice32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='iOSDevice64' and '$(Base)'=='true') or '$(Base_iOSDevice64)'!=''">
+        <Base_iOSDevice64>true</Base_iOSDevice64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='OSX32' and '$(Base)'=='true') or '$(Base_OSX32)'!=''">
+        <Base_OSX32>true</Base_OSX32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+        <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+        <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <Defines>OPJ_STATIC;LIBRAW_NODLL;LIBRAW_LIBRARY_BUILD;FREEIMAGE_LIB;NO_LCMS;WIN32;_WIN32;_MANAGED;$(Defines)</Defines>
+        <VerInfo_Locale>1049</VerInfo_Locale>
+        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
+        <ProjectType>CppStaticLibrary</ProjectType>
+        <Multithreaded>true</Multithreaded>
+        <IncludePath>..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Half\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite\src\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite\internal\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite\libraw\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Iex\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\Metadata\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmThread\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImageToolkit\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\DeprecationManager\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite;..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImageToolkit;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibMNG;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR/Half;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR/Iex;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR/IlmImf;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR/IlmThread;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR/Imath;..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib;$(IncludePath)</IncludePath>
+        <_TCHARMapping>char</_TCHARMapping>
+        <SanitizedProjectName>freeimage</SanitizedProjectName>
+        <DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
+        <IntermediateOutputDir>.\$(Platform)\$(Config)</IntermediateOutputDir>
+        <FinalOutputDir>.\$(Platform)\$(Config)</FinalOutputDir>
+        <BCC_wpar>false</BCC_wpar>
+        <BCC_OptimizeForSpeed>true</BCC_OptimizeForSpeed>
+        <BCC_ExtendedErrorInfo>true</BCC_ExtendedErrorInfo>
+        <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\release\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Android)'!=''">
+        <PackageImports>bindcomp;bindcompdbx;bindcompfmx;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapFireDAC;DataSnapNativeClient;DataSnapProviderClient;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXInterBaseDriver;DBXSqliteDriver;dsnap;dsnapxml;emsclient;emsclientfiredac;FireDAC;FireDACCommon;FireDACCommonDriver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACSqliteDriver;fmx;fmxFireDAC;FMXTee;FmxTeeUI;ibmonitor;ibxbindings;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;tethering;xmlrtl;$(PackageImports)</PackageImports>
+        <EnabledSysJars>android-support-v4.dex.jar;apk-expansion.dex.jar;cloud-messaging.dex.jar;fmx.dex.jar;google-analytics-v2.dex.jar;google-play-billing.dex.jar;google-play-licensing.dex.jar;google-play-services.dex.jar</EnabledSysJars>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_iOSDevice32)'!=''">
+        <PackageImports>bindcomp;bindcompdbx;bindcompfmx;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapFireDAC;DataSnapNativeClient;DataSnapProviderClient;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXInterBaseDriver;DBXSqliteDriver;dsnap;dsnapxml;emsclient;emsclientfiredac;FireDAC;FireDACCommon;FireDACCommonDriver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACSqliteDriver;fmx;fmxase;fmxFireDAC;FMXTee;FmxTeeUI;ibmonitor;ibxbindings;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;tethering;xmlrtl;$(PackageImports)</PackageImports>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_iOSDevice64)'!=''">
+        <PackageImports>bindcomp;bindcompdbx;bindcompfmx;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapFireDAC;DataSnapNativeClient;DataSnapProviderClient;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXInterBaseDriver;DBXSqliteDriver;dsnap;dsnapxml;emsclient;emsclientfiredac;FireDAC;FireDACCommon;FireDACCommonDriver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACSqliteDriver;fmx;fmxase;fmxFireDAC;FMXTee;FmxTeeUI;ibmonitor;ibxbindings;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;tethering;xmlrtl;$(PackageImports)</PackageImports>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_OSX32)'!=''">
+        <PackageImports>bindcomp;bindcompdbx;bindcompfmx;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapFireDAC;DataSnapIndy10ServerTransport;DataSnapNativeClient;DataSnapProviderClient;DataSnapServer;DataSnapServerMidas;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMySQLDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;dsnap;dsnapxml;emsclient;emsclientfiredac;FireDAC;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACMongoDBDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;FireDACTDataDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;ibmonitor;ibxbindings;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;tethering;xmlrtl;$(PackageImports)</PackageImports>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <PackageImports>adortl;appanalytics;bcbie;bcbsmp;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapConnectors;DatasnapConnectorsFreePascal;DataSnapFireDAC;DataSnapIndy10ServerTransport;DataSnapNativeClient;DataSnapProviderClient;DataSnapServer;DataSnapServerMidas;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXDb2Driver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMSSQLDriver;DBXMySQLDriver;DBXOdbcDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;DBXSybaseASEDriver;dsnap;dsnapcon;dsnapxml;emsclient;emsclientfiredac;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACDb2Driver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACInfxDriver;FireDACMongoDBDriver;FireDACMSAccDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;FireDACTDataDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;frx23;frxDB23;frxe23;frxTee23;ibmonitor;ibxbindings;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;Intraweb;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;svn;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldsnap;vclFireDAC;vclib;vclie;vclimg;VCLRESTComponents;vclribbon;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <PackageImports>adortl;appanalytics;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapConnectors;DatasnapConnectorsFreePascal;DataSnapFireDAC;DataSnapIndy10ServerTransport;DataSnapNativeClient;DataSnapProviderClient;DataSnapServer;DataSnapServerMidas;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXDb2Driver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMSSQLDriver;DBXMySQLDriver;DBXOdbcDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;DBXSybaseASEDriver;dsnap;dsnapcon;dsnapxml;emsclient;emsclientfiredac;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACDb2Driver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACInfxDriver;FireDACMongoDBDriver;FireDACMSAccDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;FireDACTDataDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;ibmonitor;ibxbindings;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;Intraweb;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldsnap;vclFireDAC;vclib;vclie;vclimg;VCLRESTComponents;vclribbon;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
+        <BCC_DisableOptimizations>true</BCC_DisableOptimizations>
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+        <Defines>_DEBUG;$(Defines)</Defines>
+        <BCC_InlineFunctionExpansion>false</BCC_InlineFunctionExpansion>
+        <BCC_UseRegisterVariables>None</BCC_UseRegisterVariables>
+        <DCC_Define>DEBUG</DCC_Define>
+        <BCC_DebugLineNumbers>true</BCC_DebugLineNumbers>
+        <TASM_DisplaySourceLines>true</TASM_DisplaySourceLines>
+        <BCC_StackFrames>true</BCC_StackFrames>
+        <ILINK_FullDebugInfo>true</ILINK_FullDebugInfo>
+        <TASM_Debugging>Full</TASM_Debugging>
+        <BCC_SourceDebuggingOn>true</BCC_SourceDebuggingOn>
+        <BCC_EnableCPPExceptions>true</BCC_EnableCPPExceptions>
+        <BCC_DisableFramePtrElimOpt>true</BCC_DisableFramePtrElimOpt>
+        <BCC_DisableSpellChecking>true</BCC_DisableSpellChecking>
+        <CLANG_UnwindTables>true</CLANG_UnwindTables>
+        <ILINK_LibraryPath>$(BDSLIB)\$(PLATFORM)\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\debug\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <Manifest_File>None</Manifest_File>
+        <VerInfo_Locale>1049</VerInfo_Locale>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <Defines>NDEBUG;$(Defines)</Defines>
+        <TASM_Debugging>None</TASM_Debugging>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <Manifest_File>None</Manifest_File>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\CacheFile.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\DeprecationManager\Deprecated.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\DeprecationManager\DeprecationMgr.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\DeprecationManager\DeprecationMgr.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImageIO.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImageToolkit\Background.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImageToolkit\BSplineRotate.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImageToolkit\Channels.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImageToolkit\ClassicRotate.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImageToolkit\Colors.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImageToolkit\CopyPaste.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImageToolkit\Display.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImageToolkit\Filters.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImageToolkit\Flip.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImageToolkit\JPEGTransform.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImageToolkit\MultigridPoissonSolver.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImageToolkit\Rescale.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImageToolkit\Resize.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImageToolkit\Resize.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\BitmapAccess.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\CacheFile.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\ColorLookup.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\Conversion.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\Conversion16_555.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\Conversion16_565.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\Conversion24.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\Conversion32.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\Conversion4.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\Conversion8.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\ConversionFloat.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\ConversionRGB16.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\ConversionRGBF.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\ConversionType.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\ConversionUINT16.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\FreeImage.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\FreeImageIO.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\GetType.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\Halftoning.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\J2KHelper.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\MemoryIO.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\MNGHelper.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\MultiPage.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\NNQuantizer.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PixelAccess.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\Plugin.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginBMP.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginCUT.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginDDS.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginEXR.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginG3.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginGIF.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginHDR.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginICO.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginIFF.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginJ2K.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginJNG.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginJP2.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginJPEG.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginKOALA.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginMNG.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginPCD.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginPCX.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginPFM.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginPICT.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginPNG.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginPNM.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginPSD.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginRAS.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginRAW.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginSGI.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginTARGA.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginTIFF.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginWBMP.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginXBM.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PluginXPM.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PSDParser.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\PSDParser.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\TIFFLogLuv.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\tmoColorConvert.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\tmoDrago03.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\tmoFattal02.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\tmoReinhard05.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\ToneMapping.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\WuQuantizer.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\ZLibInterface.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jaricom.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jcapimin.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jcapistd.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jcarith.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jccoefct.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jccolor.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jcdctmgr.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jchuff.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jcinit.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jcmainct.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jcmarker.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jcmaster.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jcomapi.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jconfig.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jcparam.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jcprepct.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jcsample.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jctrans.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jdapimin.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jdapistd.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jdarith.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jdatadst.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jdatasrc.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jdcoefct.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jdcolor.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jdct.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jddctmgr.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jdhuff.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jdinput.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jdmainct.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jdmarker.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jdmaster.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jdmerge.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jdpostct.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jdsample.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jdtrans.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jerror.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jerror.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jfdctflt.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jfdctfst.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jfdctint.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jidctflt.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jidctfst.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jidctint.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jinclude.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jmemmgr.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jmemnobs.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jmemsys.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jmorecfg.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jpegint.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jpeglib.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jquant1.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jquant2.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jutils.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\jversion.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\transupp.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\transupp.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\bio.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\bio.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\cidx_manager.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\cidx_manager.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\cio.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\cio.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\dwt.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\dwt.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\event.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\event.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\fix.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\image.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\image.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\indexbox_manager.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\int.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\j2k.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\j2k.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\j2k_lib.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\j2k_lib.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\jp2.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\jp2.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\jpt.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\jpt.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\mct.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\mct.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\mqc.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\mqc.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\openjpeg.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\openjpeg.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\opj_config.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\opj_includes.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\opj_malloc.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\phix_manager.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\pi.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\pi.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\ppix_manager.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\raw.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\raw.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\t1.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\t1.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\t1_luts.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\t2.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\t2.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\tcd.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\tcd.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\tgt.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\tgt.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\thix_manager.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\tpix_manager.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\png.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\png.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pngconf.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pngdebug.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pngerror.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pnggccrd.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pngget.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pnginfo.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pnglibconf.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pngmem.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pngpread.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pngpriv.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pngread.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pngrio.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pngrtran.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pngrutil.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pngset.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pngstruct.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pngtrans.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pngvcrd.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pngwio.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pngwrite.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pngwtran.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\pngwutil.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite\internal\dcraw_common.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite\internal\dcraw_fileio.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite\internal\defines.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite\internal\demosaic_packs.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite\internal\libraw_bytebuffer.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite\internal\libraw_internal_funcs.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite\internal\var_defines.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite\libraw\libraw.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite\libraw\libraw_alloc.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite\libraw\libraw_const.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite\libraw\libraw_datastream.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite\libraw\libraw_internal.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite\libraw\libraw_types.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite\libraw\libraw_version.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite\src\libraw_cxx.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite\src\libraw_c_api.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibRawLite\src\libraw_datastream.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\t4.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tiff.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tiffio.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tiffiop.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tiffvers.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_aux.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_close.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_codec.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_color.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_compress.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_config.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_dir.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_dir.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_dirinfo.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_dirread.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_dirwrite.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_dumpmode.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_error.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_extension.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_fax3.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_fax3.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_fax3sm.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_flush.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_getimage.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_jpeg.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_jpeg_12.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_luv.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_lzma.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_lzw.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_next.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_ojpeg.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_open.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_packbits.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_pixarlog.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_predict.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_predict.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_print.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_read.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_strip.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_swab.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_thunder.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_tile.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_version.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_warning.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_write.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\tif_zip.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\uvcode.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\Metadata\Exif.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\Metadata\FIRational.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\Metadata\FIRational.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\Metadata\FreeImageTag.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\Metadata\FreeImageTag.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\Metadata\IPTC.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\Metadata\TagConversion.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\Metadata\TagLib.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\Metadata\XTIFF.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Half\eLut.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Half\half.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Half\half.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Half\halfFunction.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Half\halfLimits.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Half\toFloat.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Iex\Iex.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Iex\IexBaseExc.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Iex\IexBaseExc.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Iex\IexErrnoExc.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Iex\IexMacros.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Iex\IexMathExc.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Iex\IexThrowErrnoExc.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Iex\IexThrowErrnoExc.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmBaseConfig.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\b44ExpLogTable.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfAcesFile.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfAcesFile.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfArray.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfAttribute.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfAttribute.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfAutoArray.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfB44Compressor.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfB44Compressor.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfBoxAttribute.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfBoxAttribute.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfChannelList.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfChannelList.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfChannelListAttribute.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfChannelListAttribute.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfChromaticities.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfChromaticities.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfChromaticitiesAttribute.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfChromaticitiesAttribute.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfCompression.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfCompressionAttribute.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfCompressionAttribute.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfCompressor.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfCompressor.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfConvert.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfConvert.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfCRgbaFile.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfCRgbaFile.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfDoubleAttribute.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfDoubleAttribute.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfEnvmap.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfEnvmap.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfEnvmapAttribute.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfEnvmapAttribute.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfFloatAttribute.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfFloatAttribute.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfFrameBuffer.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfFrameBuffer.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfFramesPerSecond.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfFramesPerSecond.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfHeader.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfHeader.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfHuf.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfHuf.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfInputFile.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfInputFile.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfInt64.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfIntAttribute.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfIntAttribute.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfIO.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfIO.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfKeyCode.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfKeyCode.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfKeyCodeAttribute.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfKeyCodeAttribute.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfLineOrder.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfLineOrderAttribute.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfLineOrderAttribute.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfLut.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfLut.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfMatrixAttribute.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfMatrixAttribute.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfMisc.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfMisc.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfMultiView.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfMultiView.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfName.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfOpaqueAttribute.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfOpaqueAttribute.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfOutputFile.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfOutputFile.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfPixelType.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfPizCompressor.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfPizCompressor.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfPreviewImage.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfPreviewImage.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfPreviewImageAttribute.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfPreviewImageAttribute.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfPxr24Compressor.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfPxr24Compressor.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfRational.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfRational.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfRationalAttribute.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfRationalAttribute.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfRgba.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfRgbaFile.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfRgbaFile.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfRgbaYca.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfRgbaYca.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfRleCompressor.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfRleCompressor.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfScanLineInputFile.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfScanLineInputFile.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfStandardAttributes.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfStandardAttributes.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfStdIO.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfStdIO.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfStringAttribute.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfStringAttribute.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfStringVectorAttribute.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfStringVectorAttribute.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfTestFile.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfTestFile.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfThreading.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfThreading.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfTileDescription.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfTileDescriptionAttribute.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfTileDescriptionAttribute.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfTiledInputFile.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfTiledInputFile.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfTiledMisc.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfTiledMisc.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfTiledOutputFile.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfTiledOutputFile.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfTiledRgbaFile.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfTiledRgbaFile.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfTileOffsets.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfTileOffsets.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfTimeCode.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfTimeCode.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfTimeCodeAttribute.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfTimeCodeAttribute.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfVecAttribute.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfVecAttribute.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfVersion.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfVersion.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfWav.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfWav.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfXdr.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfZipCompressor.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\ImfZipCompressor.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmThread\IlmThread.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmThread\IlmThread.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmThread\IlmThreadMutex.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmThread\IlmThreadMutex.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmThread\IlmThreadPool.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmThread\IlmThreadPool.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmThread\IlmThreadSemaphore.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmThread\IlmThreadSemaphore.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathBox.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathBox.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathBoxAlgo.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathColor.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathColorAlgo.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathColorAlgo.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathEuler.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathExc.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathFrame.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathFrustum.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathFun.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathFun.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathGL.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathGLU.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathHalfLimits.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathInt64.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathInterval.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathLimits.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathLine.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathLineAlgo.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathMath.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathMatrix.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathMatrixAlgo.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathMatrixAlgo.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathPlane.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathPlatform.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathQuat.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathRandom.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathRandom.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathRoots.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathShear.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathShear.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathSphere.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathVec.cpp">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathVec.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\ImathVecAlgo.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\OpenEXRConfig.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\Plugin.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\Quantizers.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ToneMapping.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\Utilities.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\adler32.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\compress.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\crc32.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\crc32.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\deflate.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\deflate.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\gzclose.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\gzguts.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\gzlib.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\gzread.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\gzwrite.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\infback.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\inffast.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\inffast.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\inffixed.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\inflate.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\inflate.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\inftrees.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\inftrees.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\trees.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\trees.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\uncompr.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\zconf.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\zlib.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <CppCompile Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\zutil.c">
+            <BuildOrder>0</BuildOrder>
+        </CppCompile>
+        <None Include="..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\zutil.h">
+            <BuildOrder>0</BuildOrder>
+        </None>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>CPlusPlusBuilder.Personality.12</Borland.Personality>
+        <Borland.ProjectType>CppStaticLibrary</Borland.ProjectType>
+        <BorlandProject>
+            <CPlusPlusBuilder.Personality>
+                <ProjectProperties>
+                    <ProjectProperties Name="AutoShowDeps">False</ProjectProperties>
+                    <ProjectProperties Name="ManagePaths">True</ProjectProperties>
+                    <ProjectProperties Name="VerifyPackages">True</ProjectProperties>
+                    <ProjectProperties Name="IndexFiles">False</ProjectProperties>
+                </ProjectProperties>
+            </CPlusPlusBuilder.Personality>
+            <Deployment Version="2">
+                <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx32\libcgcrtl.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32230.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(UsingDelphiRTL)'=='true'" LocalName="$(BDS)\bin\borlndmm.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(UsingDelphiRTL)'=='true'" LocalName="$(BDS)\bin64\borlndmm.dll" Class="DependencyModule">
+                    <Platform Name="Win64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx32\libcgstl.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="$(BDS)\Redist\iossimulator\libPCRE.dylib" Class="DependencyModule">
+                    <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="$(BDS)\Redist\iossimulator\libcgunwind.1.0.dylib" Class="DependencyModule">
+                    <Platform Name="iOSSimulator">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32230mt.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin64\cc64230mt.dll" Class="DependencyModule">
+                    <Platform Name="Win64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin64\cc64230.dll" Class="DependencyModule">
+                    <Platform Name="Win64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployClass Name="DependencyModule">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.dll;.bpl</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXResource">
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\Resources</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidClassesDexFile">
+                    <Platform Name="Android">
+                        <RemoteDir>classes</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AdditionalDebugSymbols">
+                    <Platform Name="Win32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch768">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon144">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xxhdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidLibnativeMipsFile">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\mips</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Required="true" Name="ProjectOutput">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi-v7a</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DependencyFramework">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                        <Extensions>.framework</Extensions>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch640">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch1024">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSDeviceDebug">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>..\$(PROJECTNAME).app.dSYM\Contents\Resources\DWARF</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <RemoteDir>..\$(PROJECTNAME).app.dSYM\Contents\Resources\DWARF</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidLibnativeX86File">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\x86</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch320">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSInfoPList"/>
+                <DeployClass Name="AndroidLibnativeArmeabiFile">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DebugSymbols">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch1536">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage470">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-normal</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon96">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xhdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage640">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-large</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch640x1136">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSEntitlements"/>
+                <DeployClass Name="Android_LauncherIcon72">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-hdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidGDBServer">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi-v7a</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXInfoPList"/>
+                <DeployClass Name="ProjectOSXEntitlements"/>
+                <DeployClass Name="iPad_Launch2048">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidSplashStyles">
+                    <Platform Name="Android">
+                        <RemoteDir>res\values</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage426">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-small</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidSplashImageDef">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSResource">
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectAndroidManifest">
+                    <Platform Name="Android">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_DefaultAppIcon">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="File">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="Android">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidServiceOutput">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi-v7a</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Required="true" Name="DependencyPackage">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.bpl</Extensions>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon48">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-mdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage960">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xlarge</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon36">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-ldpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSDeviceResourceRules"/>
+                <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
+            </Deployment>
+            <Platforms>
+                <Platform value="Android">False</Platform>
+                <Platform value="iOSDevice32">False</Platform>
+                <Platform value="iOSDevice64">False</Platform>
+                <Platform value="OSX32">False</Platform>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">False</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(BDS)\Bin\CodeGear.Cpp.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Cpp.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+    <Import Project="$(MSBuildProjectName).deployproj" Condition="Exists('$(MSBuildProjectName).deployproj')"/>
+</Project>

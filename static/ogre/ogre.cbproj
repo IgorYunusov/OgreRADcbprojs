@@ -6,7 +6,7 @@
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Release</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
-        <TargetedPlatforms>1</TargetedPlatforms>
+        <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>StaticLibrary</AppType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
@@ -64,13 +64,20 @@
         <Cfg_2>true</Cfg_2>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win64)'!=''">
+        <Cfg_2_Win64>true</Cfg_2_Win64>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
+        <VerInfo_Keys>FileVersion=1.0.0.0</VerInfo_Keys>
         <_TCHARMapping>char</_TCHARMapping>
         <IncludePath>..\include\;..\..\..\OgreCPPBuilder\OgreMain\src\Threading\;..\..\..\ogredeps_git_borland\src\freetype\include\freetype\internal\;..\..\..\ogredeps_git_borland\src\freetype\include\freetype\config\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmThread\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Iex\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Half\;..\..\..\ogredeps_git_borland\src\freetype\src\winfonts\;..\..\..\ogredeps_git_borland\src\freetype\src\type42\;..\..\..\ogredeps_git_borland\src\freetype\src\type1\;..\..\..\ogredeps_git_borland\src\freetype\src\truetype\;..\..\..\ogredeps_git_borland\src\freetype\src\smooth\;..\..\..\ogredeps_git_borland\src\freetype\src\sfnt\;..\..\..\ogredeps_git_borland\src\freetype\src\raster\;..\..\..\ogredeps_git_borland\src\freetype\src\psnames\;..\..\..\ogredeps_git_borland\src\freetype\src\pshinter\;..\..\..\ogredeps_git_borland\src\freetype\src\psaux\;..\..\..\ogredeps_git_borland\src\freetype\src\pfr\;..\..\..\ogredeps_git_borland\src\freetype\src\pcf\;..\..\..\ogredeps_git_borland\src\freetype\src\lzw\;..\..\..\ogredeps_git_borland\src\freetype\src\gzip\;..\..\..\ogredeps_git_borland\src\freetype\src\cid\;..\..\..\ogredeps_git_borland\src\freetype\src\cff\;..\..\..\ogredeps_git_borland\src\freetype\src\cache\;..\..\..\ogredeps_git_borland\src\freetype\src\bzip2\;..\..\..\ogredeps_git_borland\src\freetype\src\bdf\;..\..\..\ogredeps_git_borland\src\freetype\src\base\;..\..\..\ogredeps_git_borland\src\freetype\src\autofit\;..\..\..\ogredeps_git_borland\src\freetype\include\freetype\;..\..\..\ogredeps_git_borland\src\freetype\include\;..\..\..\ogredeps_git_borland\src\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImageToolkit\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\DeprecationManager\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\Metadata\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\;..\..\..\OgreCPPBuilder\OgreMain\include\WIN32\;..\..\..\OgreCPPBuilder\OgreMain\src\WIN32\;..\..\..\OgreCPPBuilder\OgreMain\include\;..\..\..\OgreCPPBuilder\OgreMain\src\;C:\Develop\ogre181\ogre_RAD_build_dll\;C:\Develop\ogre181\ogredeps_git_borland\src\zziplib\;..\..\include\;C:\Develop\ogre181\ogredeps_git_borland\src\zlib;C:\Develop\ogre181\ogredeps_git_borland\src\freetype\include;C:\Develop\ogre181\ogredeps_git_borland\src\FreeImage\Source;$(IncludePath)</IncludePath>
         <BCC_EnableRTTI>false</BCC_EnableRTTI>
         <Multithreaded>true</Multithreaded>
         <VerInfo_Locale>1049</VerInfo_Locale>
-        <Defines>WIN32;FREEIMAGE_LIB;$(Defines)</Defines>
+        <Defines>WIN32;FREEIMAGE_LIB;_MANAGED;$(Defines)</Defines>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
         <RunBCCOutOfProcess>true</RunBCCOutOfProcess>
         <SanitizedProjectName>ogre</SanitizedProjectName>
@@ -102,6 +109,7 @@
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
         <PackageImports>adortl;appanalytics;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindengine;CloudService;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapConnectors;DatasnapConnectorsFreePascal;DataSnapFireDAC;DataSnapIndy10ServerTransport;DataSnapNativeClient;DataSnapProviderClient;DataSnapServer;DataSnapServerMidas;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXDb2Driver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMSSQLDriver;DBXMySQLDriver;DBXOdbcDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;DBXSybaseASEDriver;dsnap;dsnapcon;dsnapxml;emsclient;emsclientfiredac;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACDb2Driver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACInfxDriver;FireDACMongoDBDriver;FireDACMSAccDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;FireDACTDataDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;ibmonitor;ibxbindings;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;Intraweb;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldsnap;vclFireDAC;vclib;vclie;vclimg;VCLRESTComponents;vclribbon;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
@@ -134,6 +142,8 @@
         <TASM_Debugging>None</TASM_Debugging>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <BCC_PCHWithExternalTypeFiles>false</BCC_PCHWithExternalTypeFiles>
+        <BCC_SmartPCHCache>false</BCC_SmartPCHCache>
         <BCC_EnableRTTI>true</BCC_EnableRTTI>
         <BCC_OptimizeForSize>true</BCC_OptimizeForSize>
         <BCC_SelectedWarnings>false</BCC_SelectedWarnings>
@@ -142,6 +152,10 @@
         <BCC_DisableWarnings>true</BCC_DisableWarnings>
         <BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
         <VerInfo_Keys>FileVersion=1.0.0.0</VerInfo_Keys>
+        <Manifest_File>None</Manifest_File>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
+        <Defines>__BORLANDC__;$(Defines)</Defines>
         <Manifest_File>None</Manifest_File>
     </PropertyGroup>
     <ItemGroup>
@@ -1562,7 +1576,7 @@
                     <ProjectProperties Name="AutoShowDeps">False</ProjectProperties>
                     <ProjectProperties Name="ManagePaths">True</ProjectProperties>
                     <ProjectProperties Name="VerifyPackages">True</ProjectProperties>
-                    <ProjectProperties Name="IndexFiles">True</ProjectProperties>
+                    <ProjectProperties Name="IndexFiles">False</ProjectProperties>
                 </ProjectProperties>
             </CPlusPlusBuilder.Personality>
             <Deployment Version="2">
@@ -1633,7 +1647,16 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployClass Name="ProjectiOSDeviceResourceRules"/>
+                <DeployClass Name="DependencyModule">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.dll;.bpl</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                </DeployClass>
                 <DeployClass Name="ProjectOSXResource">
                     <Platform Name="OSX32">
                         <RemoteDir>Contents\Resources</RemoteDir>
@@ -1947,16 +1970,7 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <DeployClass Name="DependencyModule">
-                    <Platform Name="Win32">
-                        <Operation>0</Operation>
-                        <Extensions>.dll;.bpl</Extensions>
-                    </Platform>
-                    <Platform Name="OSX32">
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                </DeployClass>
+                <DeployClass Name="ProjectiOSDeviceResourceRules"/>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
@@ -1971,7 +1985,7 @@
                 <Platform value="iOSDevice64">False</Platform>
                 <Platform value="OSX32">False</Platform>
                 <Platform value="Win32">True</Platform>
-                <Platform value="Win64">False</Platform>
+                <Platform value="Win64">True</Platform>
             </Platforms>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
