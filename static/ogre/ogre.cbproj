@@ -71,6 +71,7 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
+        <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
         <VerInfo_Keys>FileVersion=1.0.0.0</VerInfo_Keys>
         <_TCHARMapping>char</_TCHARMapping>
         <IncludePath>..\include\;..\..\..\OgreCPPBuilder\OgreMain\src\Threading\;..\..\..\ogredeps_git_borland\src\freetype\include\freetype\internal\;..\..\..\ogredeps_git_borland\src\freetype\include\freetype\config\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Imath\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmThread\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\IlmImf\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Iex\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\Half\;..\..\..\ogredeps_git_borland\src\freetype\src\winfonts\;..\..\..\ogredeps_git_borland\src\freetype\src\type42\;..\..\..\ogredeps_git_borland\src\freetype\src\type1\;..\..\..\ogredeps_git_borland\src\freetype\src\truetype\;..\..\..\ogredeps_git_borland\src\freetype\src\smooth\;..\..\..\ogredeps_git_borland\src\freetype\src\sfnt\;..\..\..\ogredeps_git_borland\src\freetype\src\raster\;..\..\..\ogredeps_git_borland\src\freetype\src\psnames\;..\..\..\ogredeps_git_borland\src\freetype\src\pshinter\;..\..\..\ogredeps_git_borland\src\freetype\src\psaux\;..\..\..\ogredeps_git_borland\src\freetype\src\pfr\;..\..\..\ogredeps_git_borland\src\freetype\src\pcf\;..\..\..\ogredeps_git_borland\src\freetype\src\lzw\;..\..\..\ogredeps_git_borland\src\freetype\src\gzip\;..\..\..\ogredeps_git_borland\src\freetype\src\cid\;..\..\..\ogredeps_git_borland\src\freetype\src\cff\;..\..\..\ogredeps_git_borland\src\freetype\src\cache\;..\..\..\ogredeps_git_borland\src\freetype\src\bzip2\;..\..\..\ogredeps_git_borland\src\freetype\src\bdf\;..\..\..\ogredeps_git_borland\src\freetype\src\base\;..\..\..\ogredeps_git_borland\src\freetype\src\autofit\;..\..\..\ogredeps_git_borland\src\freetype\include\freetype\;..\..\..\ogredeps_git_borland\src\freetype\include\;..\..\..\ogredeps_git_borland\src\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImageToolkit\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\FreeImage\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\DeprecationManager\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\ZLib\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\OpenEXR\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\Metadata\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibTIFF4\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibPNG\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibOpenJPEG\;..\..\..\ogredeps_git_borland\src\FreeImage\Source\LibJPEG\;..\..\..\OgreCPPBuilder\OgreMain\include\WIN32\;..\..\..\OgreCPPBuilder\OgreMain\src\WIN32\;..\..\..\OgreCPPBuilder\OgreMain\include\;..\..\..\OgreCPPBuilder\OgreMain\src\;C:\Develop\ogre181\ogre_RAD_build_dll\;C:\Develop\ogre181\ogredeps_git_borland\src\zziplib\;..\..\include\;C:\Develop\ogre181\ogredeps_git_borland\src\zlib;C:\Develop\ogre181\ogredeps_git_borland\src\freetype\include;C:\Develop\ogre181\ogredeps_git_borland\src\FreeImage\Source;$(IncludePath)</IncludePath>
@@ -135,6 +136,7 @@
         <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\debug\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <TLIB_PageSize>8192</TLIB_PageSize>
         <Manifest_File>None</Manifest_File>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
@@ -142,6 +144,8 @@
         <TASM_Debugging>None</TASM_Debugging>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
+        <TLIB_PageSize>256</TLIB_PageSize>
         <BCC_PCHWithExternalTypeFiles>false</BCC_PCHWithExternalTypeFiles>
         <BCC_SmartPCHCache>false</BCC_SmartPCHCache>
         <BCC_EnableRTTI>true</BCC_EnableRTTI>
@@ -151,7 +155,6 @@
         <BCC_PCHUsage>None</BCC_PCHUsage>
         <BCC_DisableWarnings>true</BCC_DisableWarnings>
         <BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
-        <VerInfo_Keys>FileVersion=1.0.0.0</VerInfo_Keys>
         <Manifest_File>None</Manifest_File>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
@@ -1579,7 +1582,12 @@
                     <ProjectProperties Name="IndexFiles">False</ProjectProperties>
                 </ProjectProperties>
             </CPlusPlusBuilder.Personality>
-            <Deployment Version="2">
+            <Deployment Version="3">
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32c240mt.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx32\libcgcrtl.dylib" Class="DependencyModule">
                     <Platform Name="OSX32">
                         <Overwrite>true</Overwrite>
@@ -1627,8 +1635,33 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="$(BDS)\Redist\osx32\libcgsqlite3.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32240mt.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule">
                     <Platform Name="OSX32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32240.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin64\cc64240.dll" Class="DependencyModule">
+                    <Platform Name="Win64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin64\cc64240mt.dll" Class="DependencyModule">
+                    <Platform Name="Win64">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -1647,16 +1680,12 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployClass Name="DependencyModule">
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32c240.dll" Class="DependencyModule">
                     <Platform Name="Win32">
-                        <Operation>0</Operation>
-                        <Extensions>.dll;.bpl</Extensions>
+                        <Overwrite>true</Overwrite>
                     </Platform>
-                    <Platform Name="OSX32">
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                </DeployClass>
+                </DeployFile>
+                <DeployClass Name="ProjectiOSDeviceResourceRules"/>
                 <DeployClass Name="ProjectOSXResource">
                     <Platform Name="OSX32">
                         <RemoteDir>Contents\Resources</RemoteDir>
@@ -1702,16 +1731,19 @@
                     </Platform>
                 </DeployClass>
                 <DeployClass Required="true" Name="ProjectOutput">
-                    <Platform Name="Win32">
-                        <Operation>0</Operation>
-                    </Platform>
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
                     </Platform>
-                    <Platform Name="OSX32">
+                    <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
                     </Platform>
-                    <Platform Name="iOSDevice32">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="Linux64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="Android">
@@ -1763,12 +1795,7 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <DeployClass Name="AndroidLibnativeX86File">
-                    <Platform Name="Android">
-                        <RemoteDir>library\lib\x86</RemoteDir>
-                        <Operation>1</Operation>
-                    </Platform>
-                </DeployClass>
+                <DeployClass Name="AndroidLibnativeX86File"/>
                 <DeployClass Name="iPhone_Launch320">
                     <Platform Name="iOSSimulator">
                         <Operation>1</Operation>
@@ -1970,11 +1997,21 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <DeployClass Name="ProjectiOSDeviceResourceRules"/>
+                <DeployClass Name="DependencyModule">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.dll;.bpl</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                </DeployClass>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="Linux64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
