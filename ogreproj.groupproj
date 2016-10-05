@@ -1,9 +1,21 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{6EF22694-9587-4FF9-9CBB-661ED110DB2F}</ProjectGuid>
+        <ProjectGuid>{F921AE52-DC79-49B0-94AB-1812CE148A21}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
+        <Projects Include="free_image.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="freetype.cbproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="ogre.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="OgreGLPlugin.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="zlib.cbproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -14,6 +26,24 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
+    <Target Name="free_image">
+        <MSBuild Projects="free_image.cbproj"/>
+    </Target>
+    <Target Name="free_image:Clean">
+        <MSBuild Projects="free_image.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="free_image:Make">
+        <MSBuild Projects="free_image.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="freetype">
+        <MSBuild Projects="freetype.cbproj"/>
+    </Target>
+    <Target Name="freetype:Clean">
+        <MSBuild Projects="freetype.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="freetype:Make">
+        <MSBuild Projects="freetype.cbproj" Targets="Make"/>
+    </Target>
     <Target Name="ogre">
         <MSBuild Projects="ogre.cbproj"/>
     </Target>
@@ -23,14 +53,32 @@
     <Target Name="ogre:Make">
         <MSBuild Projects="ogre.cbproj" Targets="Make"/>
     </Target>
+    <Target Name="OgreGLPlugin">
+        <MSBuild Projects="OgreGLPlugin.cbproj"/>
+    </Target>
+    <Target Name="OgreGLPlugin:Clean">
+        <MSBuild Projects="OgreGLPlugin.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="OgreGLPlugin:Make">
+        <MSBuild Projects="OgreGLPlugin.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="zlib">
+        <MSBuild Projects="zlib.cbproj"/>
+    </Target>
+    <Target Name="zlib:Clean">
+        <MSBuild Projects="zlib.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="zlib:Make">
+        <MSBuild Projects="zlib.cbproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="ogre"/>
+        <CallTarget Targets="free_image;freetype;ogre;OgreGLPlugin;zlib"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="ogre:Clean"/>
+        <CallTarget Targets="free_image:Clean;freetype:Clean;ogre:Clean;OgreGLPlugin:Clean;zlib:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="ogre:Make"/>
+        <CallTarget Targets="free_image:Make;freetype:Make;ogre:Make;OgreGLPlugin:Make;zlib:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
